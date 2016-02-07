@@ -1,47 +1,26 @@
-react-hot-boilerplate
-=====================
+# Project Intersection
 
-The minimal dev environment to enable live-editing React components.
+Basic idea is that a static site generator could just be a cache of a very simple isomorphic app.
 
-### Usage
-
-```
-npm install
-npm start
-open http://localhost:3000
-```
-
-Now edit `src/App.js`.  
-Your changes will appear without reloading the browser like in [this video](http://vimeo.com/100010922).
-
-### Linting
-
-This boilerplate project includes React-friendly ESLint configuration.
+Different content types can be configured as react-router routes.  The following example defines two content types, pages and posts.
 
 ```
-npm run lint
+const routes = [{ 
+  path: '/',
+  component: Home,
+  childRoutes: [
+    {path: 'pages/:path', component: Page},
+    {path: 'posts/:path', component: Post}
+  ]
+}];
 ```
 
-### Using `0.0.0.0` as Host
+The component specified will act like a template for the configured type, a content prop will be passed to the component instance.  The content prop has a body property containing the parsed markdown, it will also contain any metadata specified in the JSON front-matter in that file.
 
-You may want to change the host in `server.js` and `webpack.config.js` from `localhost` to `0.0.0.0` to allow access from same WiFi network. This is not enabled by default because it is reported to cause problems on Windows. This may also be useful if you're using a VM.
+Start the server by running 
 
-### Missing Features
+```
+node index.js
+```
 
-This boilerplate is purposefully simple to show the minimal configuration for React Hot Loader. For a real project, you'll want to add a separate config for production with hot reloading disabled and minification enabled. You'll also want to add a router, styles and maybe combine dev server with an existing server. This is out of scope of this boilerplate, but you may want to look into [other starter kits](https://github.com/gaearon/react-hot-loader/blob/master/docs/README.md#starter-kits).
-
-### Dependencies
-
-* React
-* Webpack
-* [webpack-dev-server](https://github.com/webpack/webpack-dev-server)
-* [babel-loader](https://github.com/babel/babel-loader)
-* [react-hot-loader](https://github.com/gaearon/react-hot-loader)
-
-### Resources
-
-* [Demo video](http://vimeo.com/100010922)
-* [react-hot-loader on Github](https://github.com/gaearon/react-hot-loader)
-* [Integrating JSX live reload into your workflow](http://gaearon.github.io/react-hot-loader/getstarted/)
-* [Troubleshooting guide](https://github.com/gaearon/react-hot-loader/blob/master/docs/Troubleshooting.md)
-* Ping dan_abramov on Twitter or #reactjs IRC
+Pages are loaded "isomorphically" by default, but you can pass the ?noRender=true to avoid server rendering, this is good for debugging.
