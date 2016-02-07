@@ -16,33 +16,38 @@ export default (req, res, next) => {
   }
   
   match({routes: routeConfig, location: req.path}, async (error, redirectLocation, renderProps) => {
-    if (error) {
-      res.status(500).send(error.message);
-      return;
-    }
-
-    console.log('[TOY-SERVER]  ', `Matched route: ${renderProps.location.pathname}`);
     
-    const posts = await api.getPosts("http://localhost:3000");
-    const appState = {posts};
+    try {
+      if (error) {
+        res.status(500).send(error.message);
+        return;
+      }
 
-    if(renderProps.params.path) {
-      let {pathname} = renderProps.location;
-      pathname = pathname.split('/')[1] + '/' + renderProps.params.path;
-      appState[pathname] = await await api.getContent(pathname, "http://localhost:3000");
-    }
-    
-    if(renderProps) {
-      const $ = cheerio.load(INDEX_HTML);
-      const createElement = (El, props) => <El initialAppState={appState} {...props}/>; 
-      const content = ReactDOMServer.renderToString( 
-        <RouterContext createElement={createElement} initialAppState={appState} {...renderProps} />   
-      );
-      $('head').append(`<script>window._AppState_ = ${JSON.stringify(appState)}</script>`);
-      $('#root').html(content);
-      res.send($.html());
-      return;
-    }
+      console.log('[TOY-SERVER]  ', `Matched route: ${renderProps.location.pathname}`);
+      
+      const index = await api.getIndex("http://localhost:3000");
+      const appState = {index};
+
+      if(renderProps) {
+        if(renderProps.params.path) {
+          let {pathname} = renderProps.location;
+          pathname = pathname.split('/')[1] + '/' + renderProps.params.path;
+          appState[pathname] = await await api.getContent(pathname, "http://localhost:3000");
+        }
+        
+        const $ = cheerio.load(INDEX_HTML);
+        const createElement = (El, props) => <El initialAppState={appState} {...props}/>; 
+        const content = ReactDOMServer.renderToString( 
+          <RouterContext createElement={createElement} initialAppState={appState} {...renderProps} />   
+        );
+        $('head').append(`<script>window._AppState_ = ${JSON.stringify(appState)}</script>`);
+        $('#root').html(content);
+        res.send($.html());
+        return;
+      }
+    } catch(e) {
+      console.error(e);
+    } 
     next();
   });
 };

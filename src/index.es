@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import routeConfig from './routeConfig';
 import {Router, browserHistory} from 'react-router';
 
-const defaultState = window._AppState_ || {posts: []};
+const defaultState = window._AppState_ || {index: {posts: [], pages: []}};
 ReactDOM.render(
   <Router routes={routeConfig} 
           history={browserHistory} 

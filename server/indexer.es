@@ -2,7 +2,7 @@ import chokidar from 'chokidar';
 import glob from 'glob';
 import frontMatter from 'yaml-front-matter';
 import marked from 'marked';
-import routeConfig from '../src/routeConfig';
+import {routes} from '../src/routeConfig';
 import omit from 'lodash/omit';
 import values from 'lodash/values';
 
@@ -13,7 +13,7 @@ marked.setOptions({
   sanitize: false
 });
 
-const dirs = routeConfig[0].childRoutes.map(d => d.path.split('/')[0]);
+const dirs = routes[0].childRoutes.map(d => d.path);
 
 function parseFile(file) {
   const content = frontMatter.loadFront(file);
@@ -56,11 +56,15 @@ watcher.on('ready', () => {
 });
 
 export default {
-  index(type) {
-    return values(contentFiles)
-      .filter(p => p.slug.split('/')[0] === type)
-      .map(p => omit(p, ['body']))
-      .sort((a, b) => a.published - b.published);
+  index() {
+    const ind = {};
+    dirs.forEach(dir => {
+      ind[dir] = values(contentFiles)
+        .filter(p => p.slug.split('/')[0] === dir)
+        .map(p => omit(p, ['body']))
+        .sort((a, b) => (a.published || 0) - (b.published || 0));
+    });
+    return ind;
   },
   
   detail(path) {

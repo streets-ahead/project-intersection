@@ -1,6 +1,7 @@
 import React from 'react';
 import Home from './Home';
 import FetchContainer from './FetchContainer';
+import cloneDeep from 'lodash/cloneDeep';
 // import About from './About';
 import Post from './Post';
 
@@ -13,13 +14,17 @@ const routes = [{
   path: '/',
   component: Home,
   childRoutes: [
-    {path: 'pages/:path', component: About},
-    {path: 'posts/:path', component: Post}
+    {path: 'pages', component: About},
+    {path: 'posts', component: Post}
   ]
 }];
 
-routes[0].childRoutes.forEach((p) => {
+export { routes };
+
+const enhancedRoutes = cloneDeep(routes);
+enhancedRoutes[0].childRoutes.forEach((p) => {
   p.component = FetchContainer(p.component, p.path.split('/')[0]);
+  p.path += '/(:path).html';
 });
 
-export default routes;
+export default enhancedRoutes;

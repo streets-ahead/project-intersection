@@ -11,8 +11,8 @@ export default class Home extends Component {
   
   componentWillMount() {
     const {appState} = this.state;
-    if(!appState.posts.length) {
-      api.getPosts().then((posts) => this.updateAppState({posts}));
+    if(!appState.index.posts.length) {
+      api.getIndex().then((index) => this.updateAppState({index}));
     }
   }
   
@@ -21,13 +21,13 @@ export default class Home extends Component {
   };
   
   render() {
-    const {posts} = this.state.appState;
+    const {index} = this.state.appState;
 
     return (
       <div>
         <div className="home">
           <ul>
-            {posts.map(p => <li key={p.title}><Link to={`/${p.slug}`}>{p.title}</Link></li>)}
+            {index.posts.map(p => <li key={p.title}><Link to={`/${p.slug}.html`}>{p.title}</Link></li>)}
           </ul>
         </div>
         {this.props.children ? React.cloneElement(this.props.children, 
