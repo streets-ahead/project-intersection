@@ -4,6 +4,7 @@ i: clean
 	
 gen: clean
 	node gen.js
+	./node_modules/.bin/webpack --config ./webpack.config.min.js
 
 serve:
 	node index.js

@@ -1,16 +1,10 @@
 {
-  "name": "react-hot-boilerplate",
+  "name": "project-intersection",
   "version": "1.0.0",
-  "description": "Boilerplate for ReactJS project with hot code reloading",
-  "scripts": {
-    "start": "node index.js",
-    "clean": "rm -rf ./dist",
-    "gen": "node gen.js",
-    "lint": "eslint src"
-  },
+  "description": "Because you don't want to be left streets behind",
   "repository": {
     "type": "git",
-    "url": "https://github.com/gaearon/react-hot-boilerplate.git"
+    "url": "https://github.com/streets-ahead/project-intersection.git"
   },
   "license": "MIT",
   "devDependencies": {

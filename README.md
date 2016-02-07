@@ -9,8 +9,8 @@ const routes = [{
   path: '/',
   component: Home,
   childRoutes: [
-    {path: 'pages/:path', component: Page},
-    {path: 'posts/:path', component: Post}
+    {path: 'pages', component: Page},
+    {path: 'posts', component: Post}
   ]
 }];
 ```
@@ -20,7 +20,15 @@ The component specified will act like a template for the configured type, a cont
 Start the server by running 
 
 ```
-node index.js
+make serve
 ```
 
 Pages are loaded "isomorphically" by default, but you can pass the ?noRender=true to avoid server rendering, this is good for debugging.
+
+To generate the cache use:
+
+```
+make gen
+```
+
+This will create a dist folder with the static site.

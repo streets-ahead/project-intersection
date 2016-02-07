@@ -2,7 +2,7 @@ var path = require('path');
 var webpack = require('webpack');
 
 module.exports = {
-  devtool: 'sourcemap',
+  devtool: 'source-map',
   entry: [
     'babel-polyfill',
     'webpack-hot-middleware/client',
@@ -13,7 +13,7 @@ module.exports = {
     extensions: ['', '.js', '.jsx', '.es', '.json']
   },
   output: {
-    path: path.join(__dirname, 'dist'),
+    path: path.join(__dirname, 'dist/static'),
     filename: 'bundle.js',
     publicPath: '/static/'
   },
