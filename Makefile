@@ -1,6 +1,9 @@
 
-i: clean
+i:
+	rm -rf node_modules
 	npm install
+	
+install: i
 	
 gen: clean
 	node gen.js
@@ -12,4 +15,4 @@ serve:
 clean:
 	-rm -rf dist
 
-.PHONY: i clean gen serve
+.PHONY: i install clean gen serve
