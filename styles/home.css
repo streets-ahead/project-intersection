@@ -1,0 +1,23 @@
+.home {
+  font-family: "proxima-nova";
+}
+
+a {
+  text-decoration: none;
+}
+
+.navBar {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.navBar h1 {
+  padding: 0px;
+  margin: 0px;
+  font-size: 22px;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0px auto;
+}

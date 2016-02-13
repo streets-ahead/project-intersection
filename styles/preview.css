@@ -1,0 +1,51 @@
+.preview-block {
+  display: block;
+}
+
+.tags {
+  list-style: none;
+  margin: 40px;
+}
+
+.tags li {
+  display: inline-block;
+  border-radius: 3px;
+  font-size: 11px;
+  background-color: #EE1B23;
+  color: white;
+  font-family: "proxima-nova";
+  text-transform: uppercase;
+  padding: 2px 7px;
+  letter-spacing: 2px;
+
+}
+
+.tags-box {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.tags-box li {
+  display: inline-block;
+  border-radius: 3px;
+  font-size: 11px;
+  border: 1px solid #dfdfdf;
+  color: black;
+  font-family: "proxima-nova";
+  text-transform: uppercase;
+  padding: 2px 7px;
+  letter-spacing: 2px;
+  color: #bbb;
+}
+
+.author {
+  text-transform: uppercase;
+  color: #bbb;
+  font-size: 13px;
+  font-weight: 400;
+  font-family: "proxima-nova";
+  margin-bottom: 0;
+  margin-bottom: 20px;
+  letter-spacing: 2px;
+}

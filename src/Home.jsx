@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
 import api from './api';
 import merge from 'lodash/merge';
-import {Link} from 'react-router';
+import Preview from './Preview';
+
+import style from '../styles/home.css';
 
 export default class Home extends Component {
   constructor(props) {
@@ -14,6 +16,32 @@ export default class Home extends Component {
     if(!appState.index.posts.length) {
       api.getIndex().then((index) => this.updateAppState({index}));
     }
+    
+    if(typeof window !== 'undefined' && window.DEV_MODE) {
+      this.initLiveLoad();
+    }
+  }
+  
+  initLiveLoad() {
+    const host = window.document.location.host;
+    const ws = new WebSocket('ws://' + host);
+    ws.onmessage = (event) => {
+      console.log('message!!', event.data);
+      const data = JSON.parse(event.data);
+      switch (data.type) {
+        case "change":
+          api.getIndex().then((index) => this.updateAppState({index}));
+          api.getContent(data.path).then((d) => this.updateAppState({[data.path]: d}));
+          break;
+        case "add":
+          api.getIndex().then((index) => this.updateAppState({index}));
+          api.getContent(data.path).then((d) => this.updateAppState({[data.path]: d}));
+          break;
+        case "remove":
+          api.getIndex().then((index) => this.updateAppState({index}));
+          break;  
+      }
+    };
   }
   
   updateAppState = (newState) => {
@@ -21,17 +49,22 @@ export default class Home extends Component {
   };
   
   render() {
+    const {children} = this.props;
     const {index} = this.state.appState;
+    const childrenWithProps = children ? React.cloneElement(children, {
+      updateAppState: this.updateAppState, 
+      appState: this.state.appState
+    }) : '';
 
     return (
-      <div>
-        <div className="home">
+      <div className={style.home}>
+        <div className={style.navBar}><h1>SA Labs</h1></div>
+        <div className={style.container}>
           <ul>
-            {index.posts.map(p => <li key={p.title}><Link to={`/${p.slug}.html`}>{p.title}</Link></li>)}
+            {index.posts.map(p => <Preview key={p.slug} post={p} />)}
           </ul>
+          {childrenWithProps}
         </div>
-        {this.props.children ? React.cloneElement(this.props.children, 
-            {updateAppState: this.updateAppState, appState: this.state.appState}) : ''}
       </div>
     )
   }

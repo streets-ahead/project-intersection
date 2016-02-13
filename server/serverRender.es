@@ -6,10 +6,22 @@ import React from 'react';
 import routeConfig from '../src/routeConfig';
 import cheerio from 'cheerio';
 import api from '../src/api';
+import reqReload from 'require-reload';
+
+const reload = reqReload(require);
 
 const INDEX_HTML = fs.readFileSync(path.join(__dirname, '../index.html'));
 
 export default (req, res, next) => { 
+  let routeConfig, api;
+  try {
+    reload.emptyCache();
+    routeConfig = reload('../src/routeConfig').default;
+    api = reload('../src/api').default;
+  } catch(e) {
+    console.error('could not reload', e);
+  }
+  
   if(req.query.noRender) {
     next();
     return;
@@ -22,13 +34,13 @@ export default (req, res, next) => {
         res.status(500).send(error.message);
         return;
       }
-
-      console.log('[TOY-SERVER]  ', `Matched route: ${renderProps.location.pathname}`);
       
-      const index = await api.getIndex("http://localhost:3000");
-      const appState = {index};
-
       if(renderProps) {
+        console.log('[TOY-SERVER]  ', `Matched route: ${renderProps.location.pathname}`);
+        
+        const index = await api.getIndex("http://localhost:3000");
+        const appState = {index};
+      
         if(renderProps.params.path) {
           let {pathname} = renderProps.location;
           pathname = pathname.split('/')[1] + '/' + renderProps.params.path;

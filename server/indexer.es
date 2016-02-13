@@ -40,34 +40,55 @@ const watcher = chokidar.watch(`./@(${dirs.join('|')})/*.md`, {
   persistent: true
 });
 
-watcher.on('ready', () => {
-  watcher.on('add', path => {
-      console.log('[TOY-SERVER]  ', `File Added: ${path}`);
-      contentFiles[cleanFileName(path)] = parseFile(path);
-    })
-    .on('change', path => {
-      console.log('[TOY-SERVER]  ', `File Changed: ${path}`);
-      contentFiles[cleanFileName(path)] = parseFile(path);
-    })
-    .on('unlink', path => {
-      console.log('[TOY-SERVER]  ', `Removed File: ${path}`);
-      delete contentFiles[cleanFileName(path)];
-    });
-});
-
-export default {
-  index() {
-    const ind = {};
-    dirs.forEach(dir => {
-      ind[dir] = values(contentFiles)
-        .filter(p => p.slug.split('/')[0] === dir)
-        .map(p => omit(p, ['body']))
-        .sort((a, b) => (a.published || 0) - (b.published || 0));
-    });
-    return ind;
-  },
-  
-  detail(path) {
-    return contentFiles[path];
+export default function(sessions) {
+  function broadcastValue({path, type}) {
+    values(sessions).forEach((s) => s.send(JSON.stringify({
+      type,
+      path: path.replace('.md', '')
+    }), () => {}));
   }
-}
+  
+  watcher.on('ready', () => {
+    watcher.on('add', path => {
+        console.log('[TOY-SERVER]  ', `File Added: ${path}`);
+        broadcastValue({
+          type: "add",
+          path
+        });
+        contentFiles[cleanFileName(path)] = parseFile(path);
+      })
+      .on('change', path => {
+        console.log('[TOY-SERVER]  ', `File Changed: ${path}`);
+        broadcastValue({
+          type: "change",
+          path
+        });
+        contentFiles[cleanFileName(path)] = parseFile(path);
+      })
+      .on('unlink', path => {
+        console.log('[TOY-SERVER]  ', `Removed File: ${path}`);
+        broadcastValue({
+          type: "remove",
+          path
+        });
+        delete contentFiles[cleanFileName(path)];
+      });
+  });
+
+  return {
+    index() {
+      const ind = {};
+      dirs.forEach(dir => {
+        ind[dir] = values(contentFiles)
+          .filter(p => p.slug.split('/')[0] === dir)
+          .map(p => omit(p, ['body']))
+          .sort((a, b) => (a.published || 0) - (b.published || 0));
+      });
+      return ind;
+    },
+    
+    detail(path) {
+      return contentFiles[path];
+    }
+  };
+};

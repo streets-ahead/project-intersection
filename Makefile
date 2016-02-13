@@ -10,7 +10,7 @@ gen: clean
 	./node_modules/.bin/webpack --config ./webpack.config.min.js
 
 serve:
-	node index.js
+	NODE_ENV=development node index.js
 
 clean:
 	-rm -rf dist

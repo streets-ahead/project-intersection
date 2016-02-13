@@ -6,13 +6,16 @@ import express from 'express';
 import {routes} from '../src/routeConfig';
 import html5Index from './html5Index';
 import serverRender from './serverRender';
-import indexer from './indexer';
+import Indexer from './indexer';
+import http from 'http';
+import {Server as WebSocketServer} from 'ws';
 
 require('babel-polyfill');
-      
-const app = express();
 
+const app = express();
 const compiler = webpack(config);
+const sessions = {};
+const indexer = Indexer(sessions);
 
 app.use(webpackDevMiddleware(compiler, {
   noInfo: false,
@@ -37,4 +40,19 @@ app.use(html5Index(routes[0].childRoutes.map(d => d.path)));
 
 app.use(express.static("."));
 
-app.listen(3000);
+const server = http.createServer(app);
+
+server.listen(3000);
+
+const wss = new WebSocketServer({server: server});
+
+let id = 1;
+wss.on('connection', function(ws) {
+  console.log('connection');
+  let wsId = id++;
+  sessions[wsId] = ws;
+  ws.on('close', function() {
+    console.log('stopping', wsId);
+    delete sessions[wsId];
+  });
+});
