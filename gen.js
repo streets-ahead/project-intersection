@@ -1,4 +1,6 @@
-require("babel-register");
+#!/usr/local/bin/node
+
+require('./serverSetup');
 var glob = require('glob');
 var fs = require('fs-extra');
 var axios = require('axios');

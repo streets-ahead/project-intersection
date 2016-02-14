@@ -11,8 +11,11 @@ gen: clean
 
 serve:
 	NODE_ENV=development node index.js
+	
+create: 
+	node create.js
 
 clean:
 	-rm -rf dist
 
-.PHONY: i install clean gen serve
+.PHONY: i install clean gen serve create

@@ -25,10 +25,20 @@ make serve
 
 Pages are loaded "isomorphically" by default, but you can pass the ?noRender=true to avoid server rendering, this is good for debugging.
 
-To generate the cache use:
+## Generate Site
+
+To generate the cache use the following, *note: the server must be running*.
 
 ```
 make gen
 ```
 
 This will create a dist folder with the static site.
+
+## Adding posts
+
+There is a command line tool to create new content.  
+
+```
+make create
+```
