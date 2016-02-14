@@ -8,10 +8,10 @@ export default ({post}) => {
       <Link className={style['preview-block']} to={`/${post.slug}.html`}>
         <h1>{post.title}</h1>
       </Link>
-      <ul className={style['tags-box']}>
-        {post.tags.map(d => <li key={d}>{d}</li>)}
-      </ul>
       <p className={style['author']}>Posted By {post.author}<br/> </p>
+        <ul className={style['tags-box']}>
+          {post.tags.map(d => <li key={d}>{d}</li>)}
+        </ul>
     </div>
   );
 };

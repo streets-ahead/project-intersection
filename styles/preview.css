@@ -1,3 +1,8 @@
+
+h1 {
+  font-family: "proxima-nova";
+}
+
 .preview-block {
   display: block;
 }
@@ -28,6 +33,7 @@
 
 .tags-box li {
   display: inline-block;
+  margin-right: 10px;
   border-radius: 3px;
   font-size: 11px;
   border: 1px solid #dfdfdf;
