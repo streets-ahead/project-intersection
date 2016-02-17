@@ -2,13 +2,20 @@
   font-family: "ff-tisa-web-pro";
 }
 
-a {
+.home h1 {
+  font-family: "proxima-nova";
+}
+
+.home a {
   text-decoration: none;
 }
 
 .navBar {
   padding: 10px;
-  border-bottom: 1px solid #ddd;
+  /*border-bottom: 1px solid #ddd;*/
+  max-width: 960px;
+  text-align: center;
+  margin: 60px auto;
 }
 
 .navBar h1 {
@@ -20,4 +27,11 @@ a {
 .container {
   max-width: 960px;
   margin: 0px auto;
+}
+
+.container ul {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0;
+  margin-top: 20px;
 }

@@ -4,14 +4,15 @@ import style from '../styles/preview.css';
 
 export default ({post}) => {
   return (
-    <div>
-      <Link className={style['preview-block']} to={`/${post.slug}.html`}>
+    <li className={style['preview-block']}>
+      <Link to={`/${post.slug}.html`}>
         <h1>{post.title}</h1>
       </Link>
       <p className={style['author']}>Posted By {post.author}<br/> </p>
-        <ul className={style['tags-box']}>
-          {post.tags.map(d => <li key={d}>{d}</li>)}
-        </ul>
-    </div>
+      <p className={style['preview-content']}>{post.preview}</p>
+      <ul className={style['tags-box']}>
+        {post.tags.map(d => <li key={d}>{d}</li>)}
+      </ul>
+    </li>
   );
 };

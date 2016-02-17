@@ -57,6 +57,6 @@ prompt.get({
 }
 ---
 
-# Check yourself before you reck yo-self.
+Check yourself before you reck yo-self.
 `);
   });

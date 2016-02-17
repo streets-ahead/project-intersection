@@ -61,7 +61,9 @@ export default class Home extends Component {
         <div className={style.navBar}><h1>SA Labs</h1></div>
         <div className={style.container}>
           <ul>
-            {index.posts.map(p => <Preview key={p.slug} post={p} />)}
+            {index.posts
+                .sort((a, b) => new Date(b.published) - new Date(a.published))
+                .map(p => <Preview key={p.slug} post={p} />)}
           </ul>
           {childrenWithProps}
         </div>

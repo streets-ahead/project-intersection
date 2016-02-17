@@ -17,7 +17,7 @@ const dirs = routes[0].childRoutes.map(d => d.path);
 
 function parseFile(file) {
   const content = frontMatter.loadFront(file);
-  content.body = marked(content.__content);
+  content.body = content.__content.replace(/^\s+/, '');
   content.slug = cleanFileName(file);
   content.published = new Date(content.published);
   delete content.__content;
@@ -81,6 +81,7 @@ export default function(sessions) {
       dirs.forEach(dir => {
         ind[dir] = values(contentFiles)
           .filter(p => p.slug.split('/')[0] === dir)
+          .map(p => ({preview: p.body.substring(0, p.body.indexOf('\n', 20)), ...p}))
           .map(p => omit(p, ['body']))
           .sort((a, b) => (a.published || 0) - (b.published || 0));
       });
@@ -88,7 +89,8 @@ export default function(sessions) {
     },
     
     detail(path) {
-      return contentFiles[path];
+      const content = contentFiles[path];
+      return {...content, body: marked(content.body)};
     }
   };
 };

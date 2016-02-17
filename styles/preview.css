@@ -1,28 +1,27 @@
 
-h1 {
+
+.preview-block h1 {
   font-family: "proxima-nova";
+  margin: 0px;
 }
 
 .preview-block {
   display: block;
+  width: 29%;
+  margin-right: 4%;
+  margin-bottom: 60px;
+}
+
+.preview-content {
+  max-height: 100px;
+  padding-top: 20px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .tags {
   list-style: none;
-  margin: 40px;
-}
-
-.tags li {
-  display: inline-block;
-  border-radius: 3px;
-  font-size: 11px;
-  background-color: #EE1B23;
-  color: white;
-  font-family: "proxima-nova";
-  text-transform: uppercase;
-  padding: 2px 7px;
-  letter-spacing: 2px;
-
+  margin: 10px;
 }
 
 .tags-box {
@@ -35,14 +34,14 @@ h1 {
   display: inline-block;
   margin-right: 10px;
   border-radius: 3px;
-  font-size: 11px;
-  border: 1px solid #dfdfdf;
+  font-size: 10px;
+  /*border: 1px solid #dfdfdf;*/
   color: black;
   font-family: "proxima-nova";
   text-transform: uppercase;
-  padding: 2px 7px;
+  /*padding: 2px 7px;*/
   letter-spacing: 2px;
-  color: #bbb;
+  color: red;
 }
 
 .author {
@@ -54,4 +53,8 @@ h1 {
   margin-bottom: 0;
   margin-bottom: 20px;
   letter-spacing: 2px;
+}
+
+.preview-block p {
+  margin: 5px 0px;
 }
