@@ -2,8 +2,10 @@ import React, {Component} from 'react';
 import api from './api';
 import merge from 'lodash/merge';
 import Preview from './Preview';
-
+import {Link} from 'react-router';
+import prettyDate from 'pretty-date';
 import style from '../styles/home.css';
+import previewStyle from '../styles/preview.css';
 
 export default class Home extends Component {
   constructor(props) {
@@ -26,7 +28,6 @@ export default class Home extends Component {
     const host = window.document.location.host;
     const ws = new WebSocket('ws://' + host);
     ws.onmessage = (event) => {
-      console.log('message!!', event.data);
       const data = JSON.parse(event.data);
       switch (data.type) {
         case "change":
@@ -55,15 +56,31 @@ export default class Home extends Component {
       updateAppState: this.updateAppState, 
       appState: this.state.appState
     }) : '';
+    
+    if(!index.posts.length) return <span/>;
+    
+    const [firstPost, ...rest] = index.posts.sort((a, b) => new Date(b.published) - new Date(a.published));
 
     return (
       <div className={style.home}>
         <div className={style.navBar}><h1>SA Labs</h1></div>
         <div className={style.container}>
+          <div>
+            <div className={style['first-post']}>
+              <Link to={`/${firstPost.slug}.html`}>
+                <h1>{firstPost.title}</h1>
+              </Link>
+              <p className={previewStyle['author']}>
+                Posted By {firstPost.author} {prettyDate.format(new Date(firstPost.published))}
+              </p>
+              <p className={previewStyle['preview-content']}>{firstPost.preview}</p>
+              <ul className={previewStyle['tags-box']}>
+                {firstPost.tags.map(d => <li key={d}>{d}</li>)}
+              </ul>
+            </div>
+          </div>
           <ul>
-            {index.posts
-                .sort((a, b) => new Date(b.published) - new Date(a.published))
-                .map(p => <Preview key={p.slug} post={p} />)}
+            {rest.map(p => <Preview key={p.slug} post={p} />)}
           </ul>
           {childrenWithProps}
         </div>

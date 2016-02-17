@@ -3,18 +3,20 @@
 .preview-block h1 {
   font-family: "proxima-nova";
   margin: 0px;
+  line-height: 1.3em;
 }
 
 .preview-block {
   display: block;
-  width: 29%;
+  width: 46%;
   margin-right: 4%;
   margin-bottom: 60px;
 }
 
 .preview-content {
-  max-height: 100px;
-  padding-top: 20px;
+  /*max-height: 100px;*/
+  padding-top: 10px;
+  padding-bottom: 20px;
   overflow: hidden;
   text-overflow: ellipsis;
 }
@@ -34,7 +36,7 @@
   display: inline-block;
   margin-right: 10px;
   border-radius: 3px;
-  font-size: 10px;
+  font-size: 12px;
   /*border: 1px solid #dfdfdf;*/
   color: black;
   font-family: "proxima-nova";

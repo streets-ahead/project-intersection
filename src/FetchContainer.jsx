@@ -24,7 +24,10 @@ export default function(Component, type) {
     
     render() {
       const content = this.props.appState[type + '/' + this.props.params.path];
-      return <Component content={content || ""} {...this.props} />;
+      
+      if(!content) return <span></span>;
+        
+      return <Component content={content} {...this.props} />;
     }
   }
   

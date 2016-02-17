@@ -1,0 +1,25 @@
+.post {
+  position: fixed;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  background-color: #f0f0f0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+}
+
+.post-container {
+  flex: 1;
+  margin: 0px auto;
+  background-color: #fafafa;
+  padding: 60px 100px 0;
+  max-width: 800px;
+  overflow-y: auto;
+  color: black;
+}
+
+.post-body {
+  padding-bottom: 60px;
+}
