@@ -38,12 +38,11 @@
   border-radius: 3px;
   font-size: 12px;
   /*border: 1px solid #dfdfdf;*/
-  color: black;
   font-family: "proxima-nova";
   text-transform: uppercase;
   /*padding: 2px 7px;*/
   letter-spacing: 2px;
-  color: red;
+  color: #F43F2A;
 }
 
 .author {

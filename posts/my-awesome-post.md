@@ -1,6 +1,6 @@
 ---
 {
-  "title": "123123",
+  "title": "Some Sweet Post",
   "author": "Sam Mussell",
   "tags": ["awesomeness", "face goodness"],
   "published": "1983-03-01"
