@@ -1,10 +1,10 @@
 ---
 {
-  "title": "Hack of the Week: Tornado Chasing with Clojure",
-  "author": "Terry Keeney",
-  "subHead": "Will my quest to learn Clojure aid me in my quest to spot a twister?",
-  "tags": ["clojure","hack"],
-  "published": "Sun Feb 14 2016 00:36:41 GMT-0800 (PST)"
+  "title": "Some Super Cool Post",
+  "author": "Sam Mussell",
+  "subHead": "Probably the single greatest post of all time.",
+  "tags": ["clojure","Swift", "iOS"],
+  "published": "Sun Feb 10 2000 00:36:41 GMT-0800 (PST)"
 }
 ---
 

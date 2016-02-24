@@ -1,5 +1,5 @@
 .home {
-  font-family: "chaparral-pro";
+  font-family: "adelle";
 }
 
 .home h1, .home h2, .home h3, .home h4, .home h5, .home h6 {
@@ -28,7 +28,7 @@
 .navBar {
   padding: 10px;
   /*border-bottom: 1px solid #ddd;*/
-  max-width: 720px;
+  max-width: 960px;
   text-align: center;
   margin: 60px auto;
 }
@@ -37,17 +37,11 @@
   padding: 0px;
   margin: 0px;
   font-size: 22px;
-  font-weight: 100;
+  font-weight: 300;
 }
 
 .container {
-  max-width: 720;
+  max-width: 960px;
   margin: 0px auto;
-}
-
-.container > ul {
-  display: flex;
-  flex-wrap: wrap;
-  padding: 0;
-  margin-top: 20px;
+  padding: 0 20px;
 }

@@ -1,11 +1,35 @@
 import React, {Component} from 'react';
 import api from './api';
 import merge from 'lodash/merge';
-import Preview from './Preview';
 import {Link} from 'react-router';
 import prettyDate from 'pretty-date';
 import style from '../styles/home.css';
 import previewStyle from '../styles/preview.css';
+import chunk from 'lodash/chunk';
+import classNames from 'classnames';
+
+const Preview = function({post, showPreview = false}) {
+  return (
+    <div  className={classNames(previewStyle['preview-block'], {[previewStyle.expanded]: showPreview})}>
+      <div className={previewStyle['title']}>
+        <Link to={`/${post.slug}.html`}>
+          <h1>{post.title}</h1>
+        </Link>
+        <p className={previewStyle['subhead']}>{showPreview ? post.subHead : ''}</p>
+      </div>
+      <div style={{flex: 1}}></div>
+      <div>
+        <ul className={previewStyle['tags-box']}>
+          {post.tags.map(d => <li key={d}>{d}</li>)}
+        </ul>
+        <p className={previewStyle['author']}>
+          Posted By {post.author}<br/> {prettyDate.format(new Date(post.published))}
+        </p>
+      </div>
+    </div>
+  );
+}
+
 
 export default class Home extends Component {
   constructor(props) {
@@ -52,37 +76,34 @@ export default class Home extends Component {
   render() {
     const {children} = this.props;
     const {index} = this.state.appState;
-    const childrenWithProps = children ? React.cloneElement(children, {
-      updateAppState: this.updateAppState, 
-      appState: this.state.appState
-    }) : '';
+    const childrenWithProps = '';
+    // if(children) {
+    //   childrenWithProps = (
+    //     React.cloneElement(children, {
+    //       updateAppState: this.updateAppState, 
+    //       appState: this.state.appState
+    //     });
+    //   );
+    // }
     
     if(!index.posts.length) return <span/>;
     
-    const [firstPost, ...rest] = index.posts.sort((a, b) => new Date(b.published) - new Date(a.published));
+    const firstRow = index.posts.slice(0, 2),
+          rest = index.posts.slice(2, index.posts.length);
 
     return (
       <div className={style.home}>
-        <div className={style.navBar}><h1>SA Labs</h1></div>
+        <div className={style.navBar}>
+          <h1>SA <img src="/images/sa-logo.svg" width="58" height="37" /> LABS</h1>
+        </div>
+        
         <div className={style.container}>
-          <div>
-            <div className={style['first-post']}>
-              <Link to={`/${firstPost.slug}.html`}>
-                <h1>{firstPost.title}</h1>
-              </Link>
-              <p className={previewStyle['author']}>
-                Posted By {firstPost.author} {prettyDate.format(new Date(firstPost.published))}
-              </p>
-              <p className={previewStyle['preview-content']}>{firstPost.preview}</p>
-              <ul className={previewStyle['tags-box']}>
-                {firstPost.tags.map(d => <li key={d}>{d}</li>)}
-              </ul>
-            </div>
+          <div style={{display: "flex"}}>
+            {firstRow.map((p, i) => <Preview post={p} showPreview={i === 0} />)}
           </div>
-          <ul>
-            {rest.map(p => <Preview key={p.slug} post={p} />)}
-          </ul>
-          {childrenWithProps}
+          <div style={{display: "flex", flexWrap: "wrap"}}>
+            {rest.map(p => <Preview post={p} />)}
+          </div>
         </div>
       </div>
     )

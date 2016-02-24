@@ -2,8 +2,9 @@
 {
   "title": "Why iphone is Far Superior",
   "author": "Sam Mussell",
+  "subHead": "Clearly iPhones are superior in every way to droid",
   "tags": ["awesomeness", "face goodness"],
-  "published": "1984-05-12"
+  "published": "Sun Feb 10 1998 00:36:41 GMT-0800 (PST)"
 }
 ---
 

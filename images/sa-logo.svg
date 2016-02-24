@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="77px" height="40px" viewBox="0 0 77 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.5.2 (25235) - http://www.bohemiancoding.com/sketch -->
+    <title>sa-logo</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path id="path-1" d="M3.82478213,39.7208231 C4.89181947,38.6361397 4.49546006,32.8328524 3.65777452,26.369874 C2.45585174,17.0967034 1.83696561,14.7543998 1.83696561,14.7543998 C0.342981525,6.60576981 5.84199979,0 14.1285275,0 L64.8714725,0 C73.1538988,0 78.798936,6.62169405 77.5306134,14.8142874 C77.5306134,14.8142874 73.6286442,37.6132898 74.9363526,39.0338028 C75.5308903,39.6796261 76.8595529,41.2702594 77.2075687,43.4469658 C77.5555844,45.6236722 76.8141983,48.6413788 74.9363512,49.8359546 C71.4905322,49.8507316 7.370437,49.825675 3.65777443,49.8359546 C1.09364855,46.7914782 1.2267449,42.361825 3.82478213,39.7208231 Z"></path>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="57.283309%" id="linearGradient-3">
+            <stop stop-color="#C96DD8" offset="0%"></stop>
+            <stop stop-color="#3023AE" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="51.2749385%" y1="0%" x2="51.2749374%" y2="59.6166805%" id="linearGradient-4">
+            <stop stop-color="#F2C146" offset="0%"></stop>
+            <stop stop-color="#DF6D3A" offset="100%"></stop>
+        </linearGradient>
+        <filter x="-50%" y="-50%" width="200%" height="200%" filterUnits="objectBoundingBox" id="filter-5">
+            <feOffset dx="-2" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.109989244 0" in="shadowBlurOuter1" type="matrix" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+        <linearGradient x1="60.6044829%" y1="-237.412097%" x2="60.6044829%" y2="89.7076466%" id="linearGradient-6">
+            <stop stop-color="#F2C146" offset="0%"></stop>
+            <stop stop-color="#DF6D3A" offset="100%"></stop>
+        </linearGradient>
+        <filter x="-50%" y="-50%" width="200%" height="200%" filterUnits="objectBoundingBox" id="filter-7">
+            <feOffset dx="-2" dy="-2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.0589673913 0" in="shadowBlurOuter1" type="matrix" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="new-logo" sketch:type="MSLayerGroup" transform="translate(-1.000000, -10.000000)">
+            <mask id="mask-2" sketch:name="Mask" fill="white">
+                <use xlink:href="#path-1"></use>
+            </mask>
+            <use id="Mask" stroke="#979797" opacity="0" sketch:type="MSShapeGroup" xlink:href="#path-1"></use>
+            <path d="M31.3593651,12.1084157 C33.902205,9.53903497 38.0227388,9.53678753 40.5678029,12.1084157 L68.191081,40.0200114 C70.7339208,42.5893921 70.7361451,46.7529339 68.191081,49.3245621 L40.5678029,77.2361578 C38.024963,79.8055385 33.9044292,79.8077859 31.3593651,77.2361578 L3.73608701,49.3245621 C1.19324714,46.7551813 1.19102291,42.5916395 3.73608701,40.0200114 L31.3593651,12.1084157 L31.3593651,12.1084157 Z" id="Rectangle-7" fill="url(#linearGradient-3)" sketch:type="MSShapeGroup" mask="url(#mask-2)"></path>
+            <path d="M42.4601008,16.0556728 C45.0028799,13.4863536 49.124648,13.485453 51.6683183,16.0556728 L75.2001346,39.8331021 C77.7429136,42.4024214 77.7438049,46.5672104 75.2001346,49.1374302 L51.6683183,72.9148595 C49.1255393,75.4841788 45.0037712,75.4850794 42.4601008,72.9148595 L18.9282846,49.1374302 C16.3855055,46.568111 16.3846142,42.403322 18.9282846,39.8331021 L42.4601008,16.0556728 L42.4601008,16.0556728 Z" id="Rectangle-7" fill="url(#linearGradient-4)" filter="url(#filter-5)" sketch:type="MSShapeGroup" mask="url(#mask-2)"></path>
+            <path d="M18.4596571,40.3223709 C11.4309677,46.8338818 8.30000656,52.0960158 1.93403929,46.1060827 C2.65321553,47.9643799 2.12499571,47.1566739 2.65321553,47.9643799 C3.48664626,49.2387868 5.15948235,50.8552656 5.35412818,50.8547986 C9.33600004,50.8452458 21.5520577,50.8547988 21.5520577,50.8547988 C21.5520577,50.8547988 24.4636846,34.1365704 18.4596571,40.3223709 Z" id="Path-3" fill="url(#linearGradient-6)" filter="url(#filter-7)" sketch:type="MSShapeGroup" mask="url(#mask-2)"></path>
+        </g>
+    </g>
+</svg>

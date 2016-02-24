@@ -81,9 +81,11 @@ export default function(sessions) {
       dirs.forEach(dir => {
         ind[dir] = values(contentFiles)
           .filter(p => p.slug.split('/')[0] === dir)
-          .map(p => ({preview: p.body.substring(0, p.body.indexOf('\n', 20)), ...p}))
           .map(p => omit(p, ['body']))
-          .sort((a, b) => (a.published || 0) - (b.published || 0));
+          .sort((a, b) => {
+            console.log(b.published ? new Date(b.published).getTime() : 0) - (a.published ? new Date(a.published).getTime() : 0)
+            return (b.published ? new Date(b.published).getTime() : 0) - (a.published ? new Date(a.published).getTime() : 0)
+          });
       });
       return ind;
     },

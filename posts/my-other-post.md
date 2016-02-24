@@ -1,10 +1,10 @@
 ---
 {
-  "title": "Some Sweet Post",
+  "title": "Blah Sweet Post",
   "author": "Sam Mussell",
   "subHead": "This is the single best post known to man.",
   "tags": ["awesomeness", "face goodness"],
-  "published": "Sun Feb 10 1999 00:36:41 GMT-0800 (PST)"
+  "published": "Sun Feb 22 1999 00:36:41 GMT-0800 (PST)"
 }
 ---
 
