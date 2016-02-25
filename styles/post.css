@@ -17,6 +17,16 @@
   
 }
 
+.nav-bar {
+  composes: navBar from "./home.css";
+  margin-top: 0;
+  padding-top: 40;
+}
+
+.nav-bar h1 {
+  font-size: 18px;  
+}
+
 .header-content {
   margin: 0px auto;
   max-width: 800px;

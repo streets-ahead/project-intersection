@@ -10,7 +10,7 @@
 }
 
 .date {
-  font-family: "Refrigerator Deluxe";
+  font-family: "refrigerator-deluxe";
   color: #3CB5F5;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -26,7 +26,7 @@
 }
 
 .subhead {
-  /*font-family: "Refrigerator Deluxe";*/
+  /*font-family: "refrigerator-deluxe";*/
   /*font-style: italic;*/
   font-size: 18px;
   font-weight: 300;
@@ -36,7 +36,7 @@
 }
 
 .preview-block h1 {
-  font-family: "Refrigerator Deluxe";
+  font-family: "refrigerator-deluxe";
   margin: 0px;
   font-weight: 100;
   font-size: 42px;
@@ -69,7 +69,7 @@
   margin-right: 10px;
   /*font-size: 11px;*/
   /*border: 1px solid #bbb;*/
-  font-family: "Refrigerator Deluxe";
+  font-family: "refrigerator-deluxe";
   text-transform: uppercase;
   padding: 0px 7px 0 0;
   letter-spacing: 1px;
@@ -81,7 +81,7 @@
   text-transform: uppercase;
   color: #bbb;
   font-weight: 400;
-  font-family: "Refrigerator Deluxe";
+  font-family: "refrigerator-deluxe";
   margin-bottom: 0;
   margin-bottom: 20px;
   letter-spacing: 2px;

@@ -23,13 +23,10 @@ export default class Post extends React.Component {
         {value => (
           <div className={styles['post']} style={{opacity: value.opac+0.4}}>
             <div className={styles['header']} style={{height: this.getWinHeight(), backgroundColor: "#3CB5F5"}}>
-              
-              <div className={homeStyle.navBar} style={{marginTop: 0, paddingTop: 40}}>
-                <p><img src="/images/sa-logo.svg" width="58" height="37" /></p>
+              <div className={styles['nav-bar']}>
+                <p><img src="/images/sa-logo.svg" width="29" height="18.5" /></p>
                 <h1>
-                  SA LABS 
-                  <span className={homeStyle.separator}>|</span> 
-                  <span style={{color: 'white'}} className={homeStyle.light}>Experiments and stuff</span>  
+                  SA LABS  
                 </h1>
               </div>
               
