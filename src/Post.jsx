@@ -6,6 +6,8 @@ import homeStyle from '../styles/home.css';
 import {Link} from 'react-router';
 import {Motion, spring} from 'react-motion';
 
+const randomBetween = (from, to) => Math.floor(Math.random() * (to - from + 1) + from);
+
 export default class Post extends React.Component {
   getWinHeight() {
     return window ? window.innerHeight : 1200;
@@ -14,6 +16,7 @@ export default class Post extends React.Component {
   render() {
     const {body, title, published, author, tags, subHead} = this.props.content;
     const config = {stiffness: 160, damping: 23};
+    const color = ["#EA6045", "#3F5666", "#61B9D0", "#F8CA4D", "#2F3440"][randomBetween(0, 4)];
 
     return (
       <Motion defaultStyle={{top: -100, opac: 0, title: -70}} 
@@ -22,11 +25,10 @@ export default class Post extends React.Component {
                       title: spring(0, {stiffness: 120, damping: 26})}}>
         {value => (
           <div className={styles['post']} style={{opacity: value.opac+0.4}}>
-            <div className={styles['header']} style={{height: this.getWinHeight(), backgroundColor: "#3CB5F5"}}>
+            <div className={styles['header']} style={{height: this.getWinHeight(), backgroundColor: color}}>
               <div className={styles['nav-bar']}>
-                <p><img src="/images/sa-logo.svg" width="29" height="18.5" /></p>
                 <h1>
-                  SA LABS  
+                  <img src="/images/sa-logo.svg" width="29" height="18.5" /> SA LABS  
                 </h1>
               </div>
               
