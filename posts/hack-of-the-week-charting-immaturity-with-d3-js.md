@@ -1,6 +1,6 @@
 ---
 {
-  "title": "Hack of the Week: Charting Immaturity with d3.js",
+  "title": "HOTW: Charting Immaturity with d3.js",
   "subHead": "In this the inaugural post of my Hack of the Week series I explore a question I've posed - at least to myself - several times.",
   "author": "Terry Keeney",
   "tags": ["javascript","d3","hack"],

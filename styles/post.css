@@ -4,22 +4,67 @@
   bottom: 0px;
   left: 0px;
   right: 0px;
-  background-color: #f0f0f0;
-  overflow: hidden;
-  display: flex;
-  flex-direction: row;
+  overflow: auto;
+  background-color: white;
 }
 
 .post-container {
-  flex: 1;
-  margin: 0px auto;
-  background-color: #fafafa;
-  padding: 60px 100px 0;
-  max-width: 800px;
-  overflow-y: auto;
   color: black;
+  background-color: white;
+}
+
+.header {
+  
+}
+
+.header-content {
+  margin: 0px auto;
+  max-width: 800px;
+  padding: 100px 100px 0;
+  color: white;
+}
+
+.header-content h1 {
+  font-size: 54px;
+  font-weight: 100;
+  margin: 0;
+}
+
+.tags-box {
+  composes: tags-box from "./preview.css";
+}
+
+.date {
+  composes: date from "./preview.css";
+  color: white;
+  font-size: 20px;
+  padding-top: 30px;
+  letter-spacing: 2px;
+}
+
+.subhead {
+  composes: subhead from "./preview.css";
+  padding-top: 30px;
+  font-style: italic;
+  color: white;
+}
+
+.tags-box li {
+  color: white;
+  letter-spacing: 2px;
+  font-size: 16px;
+  text-align: center;
+  border-radius: 5px;
+}
+
+.post-container p, .post-container ul, .post-container h1, .post-container h2, .post-container h3, .post-container h4 {
+  line-height: 1.8em;
+  letter-spacing: 0.04em;
+  margin: 32px 0;
 }
 
 .post-body {
-  padding-bottom: 60px;
+  margin: 0px auto;
+  padding: 100px 100px 100;
+  max-width: 800px;
 }

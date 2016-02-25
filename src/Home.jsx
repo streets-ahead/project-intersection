@@ -2,29 +2,29 @@ import React, {Component} from 'react';
 import api from './api';
 import merge from 'lodash/merge';
 import {Link} from 'react-router';
-import prettyDate from 'pretty-date';
 import style from '../styles/home.css';
 import previewStyle from '../styles/preview.css';
 import chunk from 'lodash/chunk';
 import classNames from 'classnames';
+import dateFormat from 'dateformat';
 
 const Preview = function({post, showPreview = false}) {
   return (
     <div  className={classNames(previewStyle['preview-block'], {[previewStyle.expanded]: showPreview})}>
       <div className={previewStyle['title']}>
-        <Link to={`/${post.slug}.html`}>
-          <h1>{post.title}</h1>
-        </Link>
-        <p className={previewStyle['subhead']}>{showPreview ? post.subHead : ''}</p>
-      </div>
-      <div style={{flex: 1}}></div>
-      <div>
         <ul className={previewStyle['tags-box']}>
           {post.tags.map(d => <li key={d}>{d}</li>)}
         </ul>
-        <p className={previewStyle['author']}>
-          Posted By {post.author}<br/> {prettyDate.format(new Date(post.published))}
-        </p>
+        <Link to={`/${post.slug}.html`}>
+          <h1>{post.title}</h1>
+        </Link>
+      </div>
+      <div style={{flex: 1}}></div>
+      <div style={{height: 120}}>
+        <div className={previewStyle['date']}>
+          {dateFormat(new Date(post.published), "mmm dd, yyyy")} / {post.author}
+        </div>
+        <p className={previewStyle['subhead']}>{post.subHead}</p>
       </div>
     </div>
   );
@@ -76,27 +76,31 @@ export default class Home extends Component {
   render() {
     const {children} = this.props;
     const {index} = this.state.appState;
-    const childrenWithProps = '';
-    // if(children) {
-    //   childrenWithProps = (
-    //     React.cloneElement(children, {
-    //       updateAppState: this.updateAppState, 
-    //       appState: this.state.appState
-    //     });
-    //   );
-    // }
+    
+    let childrenWithProps = '';
+    
+    if(children) {
+      childrenWithProps = React.cloneElement(children, {
+        updateAppState: this.updateAppState, 
+        appState: this.state.appState
+      });
+    }
     
     if(!index.posts.length) return <span/>;
     
-    const firstRow = index.posts.slice(0, 2),
-          rest = index.posts.slice(2, index.posts.length);
+    const firstRow = index.posts.slice(0, 1),
+          rest = index.posts.slice(1, index.posts.length);
 
     return (
       <div className={style.home}>
         <div className={style.navBar}>
-          <h1>SA <img src="/images/sa-logo.svg" width="58" height="37" /> LABS</h1>
+          <p><img src="/images/sa-logo.svg" width="58" height="37" /></p>
+          <h1>
+            SA LABS 
+            <span className={style.separator}>|</span> 
+            <span className={style.light}>Experiments and stuff</span>  
+          </h1>
         </div>
-        
         <div className={style.container}>
           <div style={{display: "flex"}}>
             {firstRow.map((p, i) => <Preview post={p} showPreview={i === 0} />)}
@@ -105,6 +109,7 @@ export default class Home extends Component {
             {rest.map(p => <Preview post={p} />)}
           </div>
         </div>
+        {childrenWithProps}
       </div>
     )
   }

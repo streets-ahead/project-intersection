@@ -3,7 +3,7 @@
 }
 
 .home h1, .home h2, .home h3, .home h4, .home h5, .home h6 {
-  font-family: "proxima-nova";
+  font-family: "Refrigerator Deluxe";
   font-weight: 400;
   font-size: 32px;
 }
@@ -30,14 +30,36 @@
   /*border-bottom: 1px solid #ddd;*/
   max-width: 960px;
   text-align: center;
-  margin: 60px auto;
+  margin: 80px auto;
 }
 
 .navBar h1 {
   padding: 0px;
   margin: 0px;
-  font-size: 22px;
+  letter-spacing: 4px;
+  font-size: 26px;
   font-weight: 300;
+  text-transform: uppercase;
+  color: #2F3440;
+}
+
+.light {
+  color: #bbb;
+}
+
+.separator, .light {
+  display: inline-block;
+  padding-left: 10px;
+}
+
+@media (max-width: 600px) {
+  .separator {
+    display: none;
+  }
+  .light {
+    display: block;
+    margin-top: 10px;
+  }
 }
 
 .container {

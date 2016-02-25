@@ -5,19 +5,6 @@ html {
   box-sizing: border-box !important;
 }
 
-p, ul, ol {
-  font-size: 18px;
-  line-height: 1.8em;
-}
-
 .hidden {
   display: none;
-}
-
-a {
-  color: #F43F2A;
-}
-
-a:visited {
-  color: #F43F2A;
 }
