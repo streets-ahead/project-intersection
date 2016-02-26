@@ -37,7 +37,7 @@ export default class Post extends React.Component {
         </div>
         <div className={styles['header']} style={{height: this.getWinHeight(), backgroundColor: color}}>
           <div style={{height: "15%"}}></div>
-          <StaggeredMotion defaultStyles={range(4).map((i) => ({t: 300}))}
+          <StaggeredMotion defaultStyles={range(4).map((i) => ({t: 200}))}
                           styles={prev => prev.map((_, i) => (
                             i === 0 ? {t: spring(0, config)} : {t: spring(prev[i - 1].t, config)}
                           ))}>
@@ -48,7 +48,7 @@ export default class Post extends React.Component {
                 </ul>
                 <h1 style={{transform: `translateZ(${values[1].t}px)`}}>{title}</h1>
                 <p style={{transform: `translateZ(${values[2].t}px)`}} className={styles['subhead']}>{subHead}</p>
-                <p style={{transform: `translateZ(${values[0].t}px)`}} className={styles['date']}>
+                <p style={{transform: `translateZ(${values[3].t}px)`}} className={styles['date']}>
                   {dateFormat(new Date(published), "mmm dd, yyyy")} / {author}
                 </p>
               </div>
