@@ -29,8 +29,21 @@ module.exports = {
       test: /\.css$/,
       loaders: [
           'style?sourceMap',
-          'css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]'
+          'css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]',
+          'postcss'
       ]
     }]
+  },
+  postcss: function(webpack) {
+    return [
+      // process css-next http://cssnext.io
+      require("postcss-cssnext")(),
+      // add prefixes for older browsers https://github.com/postcss/autoprefixer
+      require('autoprefixer')({browsers: ['last 2 versions']}),
+      // write any issues to the terminal
+      require("postcss-reporter")(),
+      // write any issues to the browser 
+      require("postcss-browser-reporter")()
+    ]
   }
 };

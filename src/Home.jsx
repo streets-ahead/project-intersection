@@ -3,34 +3,11 @@ import api from './api';
 import merge from 'lodash/merge';
 import {Link} from 'react-router';
 import style from '../styles/home.css';
-import previewStyle from '../styles/preview.css';
+import Preview from './Preview';
 import chunk from 'lodash/chunk';
 import classNames from 'classnames';
-import dateFormat from 'dateformat';
+import Footer from './Footer';
 import {spring, TransitionMotion} from 'react-motion';
-
-const Preview = function({post, showPreview = false}) {
-  return (
-    <div  className={classNames(previewStyle['preview-block'], {[previewStyle.expanded]: showPreview})}>
-      <div className={previewStyle['title']}>
-        <ul className={previewStyle['tags-box']}>
-          {post.tags.map(d => <li key={d}>{d}</li>)}
-        </ul>
-        <Link to={`/${post.slug}.html`}>
-          <h1>{post.title}</h1>
-        </Link>
-      </div>
-      <div style={{flex: 1}}></div>
-      <div style={{height: 120}}>
-        <div className={previewStyle['date']}>
-          {dateFormat(new Date(post.published), "mmm dd, yyyy")} / {post.author}
-        </div>
-        <p className={previewStyle['subhead']}>{post.subHead}</p>
-      </div>
-    </div>
-  );
-}
-
 
 export default class Home extends Component {
   constructor(props) {
@@ -122,8 +99,7 @@ export default class Home extends Component {
             {rest.map(p => <Preview post={p} key={p.slug} />)}
           </div>
         </div>
-        <TransitionMotion 
-                          defaultStyles={[{style: {opacity: 0}, key: "1"}]}
+        <TransitionMotion defaultStyles={[{style: {opacity: 0}, key: "1"}]}
                           willEnter={() => ({opacity: 0})}
                           willLeave={() => ({opacity: spring(0, {stiffness: 140, damping: 23})})}
                           styles={!childrenWithProps ? [] : ["1"].map(item => ({
@@ -141,9 +117,7 @@ export default class Home extends Component {
             </div>
           }}
         </TransitionMotion>
-        <footer className="footer">
-          
-        </footer>
+        <Footer />
       </div>
     )
   }
