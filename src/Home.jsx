@@ -7,6 +7,7 @@ import previewStyle from '../styles/preview.css';
 import chunk from 'lodash/chunk';
 import classNames from 'classnames';
 import dateFormat from 'dateformat';
+import {spring, TransitionMotion} from 'react-motion';
 
 const Preview = function({post, showPreview = false}) {
   return (
@@ -45,6 +46,17 @@ export default class Home extends Component {
     
     if(typeof window !== 'undefined' && window.DEV_MODE) {
       this.initLiveLoad();
+      if(this.props.children) {
+        document.body.className = "post-open";
+      }
+    }
+  }
+  
+  componentWillUpdate(nextProps, nextState) {
+    if(nextProps.children) {
+      if(typeof document !== "undefined") document.body.className = "post-open";
+    } else {
+      if(typeof document !== "undefined") document.body.className = "";
     }
   }
   
@@ -77,10 +89,11 @@ export default class Home extends Component {
     const {children} = this.props;
     const {index} = this.state.appState;
     
-    let childrenWithProps = '';
+    let childrenWithProps = null;
     
     if(children) {
       childrenWithProps = React.cloneElement(children, {
+        key: "1",
         updateAppState: this.updateAppState, 
         appState: this.state.appState
       });
@@ -109,7 +122,28 @@ export default class Home extends Component {
             {rest.map(p => <Preview post={p} key={p.slug} />)}
           </div>
         </div>
-        {childrenWithProps}
+        <TransitionMotion 
+                          defaultStyles={[{style: {opacity: 0}, key: "1"}]}
+                          willEnter={() => ({opacity: 0})}
+                          willLeave={() => ({opacity: spring(0, {stiffness: 140, damping: 23})})}
+                          styles={!childrenWithProps ? [] : ["1"].map(item => ({
+                            key: item,
+                            data: childrenWithProps,
+                            style: {opacity: spring(1, {stiffness: 140, damping: 23})},
+                          }))}>
+          {interpolatedStyles => {console.log(interpolatedStyles);
+            return <div>
+              {interpolatedStyles.map(config => (
+                <div key={config.key} style={config.style}>
+                  {config.data}
+                </div>
+              ))}
+            </div>
+          }}
+        </TransitionMotion>
+        <footer className="footer">
+          
+        </footer>
       </div>
     )
   }

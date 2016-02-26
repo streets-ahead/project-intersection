@@ -4,7 +4,8 @@ import styles from '../styles/post.css';
 import previewStyle from '../styles/preview.css';
 import homeStyle from '../styles/home.css';
 import {Link} from 'react-router';
-import {Motion, spring} from 'react-motion';
+import range from 'lodash/range';
+import {spring, StaggeredMotion} from 'react-motion';
 
 const randomBetween = (from, to) => Math.floor(Math.random() * (to - from + 1) + from);
 
@@ -13,43 +14,54 @@ export default class Post extends React.Component {
     return typeof window !== 'undefined' ? window.innerHeight : 1200;
   }
   
+  componentDidMount() {
+    this.update = () => this.forceUpdate();
+    window.addEventListener('resize', this.update);
+  }
+  
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.update);
+  }
+  
   render() {
     const {body, title, published, author, tags, subHead} = this.props.content;
-    const config = {stiffness: 160, damping: 23};
+    const config = {stiffness: 145, damping: 17};
     const color = ["#EA6045", "#3F5666", "#61B9D0", "#F8CA4D", "#2F3440"][randomBetween(0, 4)];
 
     return (
-      <Motion defaultStyle={{top: -100, opac: 0, title: -70}} 
-              style={{top: spring(0, config), 
-                      opac: spring(1), 
-                      title: spring(0, {stiffness: 120, damping: 26})}}>
-        {value => (
-          <div className={styles['post']} style={{opacity: value.opac+0.4}}>
-            <div className={styles['header']} style={{height: this.getWinHeight(), backgroundColor: color}}>
-              <div className={styles['nav-bar']}>
-                <h1>
-                  <img src="/images/sa-logo.svg" width="29" height="18.5" /> SA LABS  
-                </h1>
-              </div>
-              
+      <div className={styles['post']} style={this.props.style}>
+        <div className={styles['nav-bar']}>
+          <h1>
+            <Link to="/"><img src="/images/sa-logo.svg" width="29" height="18.5" /> SA LABS</Link>
+          </h1>
+        </div>
+        <div className={styles['header']} style={{height: this.getWinHeight(), backgroundColor: color}}>
+          <div style={{height: "15%"}}></div>
+          <StaggeredMotion defaultStyles={range(4).map((i) => ({t: 300}))}
+                          styles={prev => prev.map((_, i) => (
+                            i === 0 ? {t: spring(0, config)} : {t: spring(prev[i - 1].t, config)}
+                          ))}>
+            {values => (
               <div className={styles['header-content']}>
-                <ul style={{transform: `translateY(${Math.min(value.title + 5, 0)}px)`}} className={styles['tags-box']}>
+                <ul style={{transform: `translateZ(${values[3].t}px)`}} className={styles['tags-box']}>
                   {tags.map(d => <li key={d}>{d}</li>)}
                 </ul>
-                <h1 style={{transform: `translateY(${Math.min(value.title + 10, 0)}px)`}}>{title}</h1>
-                <p style={{transform: `translateY(${Math.min(value.title + 15, 0)}px)`}} className={styles['subhead']}>{subHead}</p>
-                <p style={{transform: `translateY(${Math.min(value.title + 20, 0)}px)`}} className={styles['date']}>
+                <h1 style={{transform: `translateZ(${values[1].t}px)`}}>{title}</h1>
+                <p style={{transform: `translateZ(${values[2].t}px)`}} className={styles['subhead']}>{subHead}</p>
+                <p style={{transform: `translateZ(${values[0].t}px)`}} className={styles['date']}>
                   {dateFormat(new Date(published), "mmm dd, yyyy")} / {author}
                 </p>
               </div>
-            </div>
-            
-            <div className={styles['post-container']} style={{ opacity: value.opac}}>
-              <div className={styles['post-body']} dangerouslySetInnerHTML={{__html: body}} /> 
-            </div>
-          </div>
-        )}
-      </Motion>  
+            )}
+          </StaggeredMotion>  
+        </div>
+        <div className={styles['post-container']}>
+          <div className={styles['post-body']} dangerouslySetInnerHTML={{__html: body}} /> 
+        </div>
+        <footer className="footer">
+          
+        </footer>
+      </div>
     )
   }
 }

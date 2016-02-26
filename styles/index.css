@@ -102,3 +102,13 @@ XCode style (c) Angel Garcia <angelgarcia.mail@gmail.com>
 .hljs-emphasis {
   font-style: italic;
 }
+
+body.post-open {
+  overflow: hidden;
+}
+
+.footer {
+  background-color: #F7F7F7;
+  height: 400px;
+  border-top: 1px solid #ddd;  
+}

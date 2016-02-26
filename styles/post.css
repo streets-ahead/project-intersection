@@ -14,23 +14,18 @@
 }
 
 .header {
-  
-}
-
-.nav-bar {
-  text-align: center;
-  background-color: rgba(255, 255, 255, 0.6);
-  margin: 0;
-  width: 100%;
-  padding: 10px;
-}
-
-.nav-bar h1 {
-  font-size: 20px;  
-  margin: 0;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
 .header-content {
+  -webkit-transform-style: preserve-3d;
+  -webkit-perspective: 1000;
+  -webkit-backface-visibility: hidden;
+  flex: 1;
+  width: 100%;
+  margin-top: -20px;
   margin: 0px auto;
   max-width: 800px;
   padding: 100px 100px 0;
@@ -41,6 +36,32 @@
   font-size: 54px;
   font-weight: 100;
   margin: 0;
+}
+
+.nav-bar {
+  position: fixed;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.4);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 1000;
+  margin: 0;
+  width: 100%;
+  padding: 10px;
+  border-bottom: 1px solid rgba(225, 225, 225, 0.8);
+}
+
+.nav-bar h1 {
+  letter-spacing: 2px;
+  font-size: 20px;  
+  margin: 0;
+}
+.nav-bar h1 a, .nav-bar h1 a:visited {
+  color: black;
+}
+
+.nav-bar img {
+  display: inline-block;
+  margin-right: 10px;
 }
 
 .tags-box {
@@ -70,19 +91,49 @@
   border-radius: 5px;
 }
 
-.post-container p, .post-container ul, .post-container h1, .post-container h2, .post-container h3, .post-container h4 {
-  line-height: 1.8em;
+.post-container p, .post-container ul, .post-container h1, .post-container h2, .post-container h3, .post-container h4, .post-container h5, .post-container h6 {
+  line-height: 1.9em;
   letter-spacing: 0.04em;
   margin: 32px 0;
 }
 
+.post-container blockquote {
+  line-height: 1.9em;
+  letter-spacing: 0.04em;
+  font-style: italic;
+  color: #999;
+}
+
 .post-body {
-  margin: 0px auto;
   padding: 60px 0;
-  max-width: 800px;
 }
 
 .post-body p, .post-body ul, .post-body h1, .post-body h2, .post-body h3, .post-body h4, .post-body h5, .post-body h6 {
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
   padding-left: 100px;
   padding-right: 100px;
+}
+
+.post-body ul {
+  padding-left: 120px;
+  padding-right: 100px;
+}
+
+.post-body pre {
+  background-color: #F7F7F7;
+  padding: 20px;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
+
+.post-body code { 
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 100px;
+  padding-right: 100px;
+  overflow-x: auto;
+  max-width: 800px;
+  display: block;
 }
