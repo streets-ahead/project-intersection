@@ -18,14 +18,16 @@
 }
 
 .nav-bar {
-  composes: navBar from "./home.css";
-  margin-top: 0;
-  padding-top: 20px;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.6);
+  margin: 0;
+  width: 100%;
+  padding: 10px;
 }
 
 .nav-bar h1 {
   font-size: 20px;  
-  color: white;
+  margin: 0;
 }
 
 .header-content {
@@ -76,6 +78,11 @@
 
 .post-body {
   margin: 0px auto;
-  padding: 60px 100px;
+  padding: 60px 0;
   max-width: 800px;
+}
+
+.post-body p, .post-body ul, .post-body h1, .post-body h2, .post-body h3, .post-body h4, .post-body h5, .post-body h6 {
+  padding-left: 100px;
+  padding-right: 100px;
 }

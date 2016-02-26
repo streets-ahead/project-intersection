@@ -103,10 +103,10 @@ export default class Home extends Component {
         </div>
         <div className={style.container}>
           <div style={{display: "flex"}}>
-            {firstRow.map((p, i) => <Preview post={p} showPreview={i === 0} />)}
+            {firstRow.map((p, i) => <Preview key={p.slug} post={p} showPreview={i === 0} />)}
           </div>
           <div style={{display: "flex", flexWrap: "wrap"}}>
-            {rest.map(p => <Preview post={p} />)}
+            {rest.map(p => <Preview post={p} key={p.slug} />)}
           </div>
         </div>
         {childrenWithProps}

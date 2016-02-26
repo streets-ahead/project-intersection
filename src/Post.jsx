@@ -10,7 +10,7 @@ const randomBetween = (from, to) => Math.floor(Math.random() * (to - from + 1) +
 
 export default class Post extends React.Component {
   getWinHeight() {
-    return window ? window.innerHeight : 1200;
+    return typeof window !== 'undefined' ? window.innerHeight : 1200;
   }
   
   render() {

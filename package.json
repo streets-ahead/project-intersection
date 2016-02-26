@@ -23,6 +23,8 @@
     "eslint-plugin-react": "^3.6.2",
     "express": "^4.13.4",
     "fs-extra": "^0.26.5",
+    "highlight": "^0.2.4",
+    "highlight.js": "^9.2.0",
     "less": "^2.6.0",
     "postcss-modules-extract-imports": "^1.0.0",
     "postcss-modules-local-by-default": "^1.0.1",

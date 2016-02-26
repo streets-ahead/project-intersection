@@ -48,7 +48,7 @@ const wss = new WebSocketServer({server: server});
 
 let id = 1;
 wss.on('connection', function(ws) {
-  console.log('client connected');
+  console.log('[TOY SERVER] ', 'client connected');
   let wsId = id++;
   sessions[wsId] = ws;
   ws.on('close', function() {

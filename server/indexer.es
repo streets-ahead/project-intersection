@@ -5,12 +5,16 @@ import marked from 'marked';
 import {routes} from '../src/routeConfig';
 import omit from 'lodash/omit';
 import values from 'lodash/values';
+import hljs from 'highlight.js';
 
 marked.setOptions({
   renderer: new marked.Renderer(),
   gfm: true,
   tables: true,
-  sanitize: false
+  sanitize: false,
+  highlight: (code) => {
+    return hljs.highlightAuto(code).value;
+  }
 });
 
 const dirs = routes[0].childRoutes.map(d => d.path);
@@ -83,7 +87,6 @@ export default function(sessions) {
           .filter(p => p.slug.split('/')[0] === dir)
           .map(p => omit(p, ['body']))
           .sort((a, b) => {
-            console.log(b.published ? new Date(b.published).getTime() : 0) - (a.published ? new Date(a.published).getTime() : 0)
             return (b.published ? new Date(b.published).getTime() : 0) - (a.published ? new Date(a.published).getTime() : 0)
           });
       });
