@@ -9,6 +9,13 @@ import {spring, StaggeredMotion} from 'react-motion';
 
 const randomBetween = (from, to) => Math.floor(Math.random() * (to - from + 1) + from);
 
+const colorMap = {
+  "mobile": "#EA6045", 
+  "react.js": "#3F5666", 
+  "data viz": "#61B9D0", 
+  "experiment": "#F8CA4D"
+};
+
 export default class Post extends React.Component {
   getWinHeight() {
     return typeof window !== 'undefined' ? window.innerHeight : 1200;
@@ -26,7 +33,7 @@ export default class Post extends React.Component {
   render() {
     const {body, title, published, author, tags, subHead} = this.props.content;
     const config = {stiffness: 145, damping: 17};
-    const color = ["#EA6045", "#3F5666", "#61B9D0", "#F8CA4D", "#2F3440"][randomBetween(0, 4)];
+    const color = colorMap[tags[0].toLowerCase()] || "#2F3440";
 
     return (
       <div className={styles['post']} style={this.props.style}>
@@ -37,7 +44,7 @@ export default class Post extends React.Component {
         </div>
         <div className={styles['header']} style={{height: this.getWinHeight(), backgroundColor: color}}>
           <div style={{height: "15%"}}></div>
-          <StaggeredMotion defaultStyles={range(4).map((i) => ({t: 200}))}
+          <StaggeredMotion defaultStyles={range(4).map((i) => ({t: 300}))}
                           styles={prev => prev.map((_, i) => (
                             i === 0 ? {t: spring(0, config)} : {t: spring(prev[i - 1].t, config)}
                           ))}>

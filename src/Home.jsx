@@ -84,7 +84,7 @@ export default class Home extends Component {
     return (
       <div className={style.home}>
         <div className={style.navBar}>
-          <p><img src="/images/sa-logo.svg" width="58" height="37" /></p>
+          <p><img src="/images/sa-logo.svg" /></p>
           <h1>
             SA LABS 
             <span className={style.separator}>|</span> 
@@ -105,17 +105,17 @@ export default class Home extends Component {
                           styles={!childrenWithProps ? [] : ["1"].map(item => ({
                             key: item,
                             data: childrenWithProps,
-                            style: {opacity: spring(1, {stiffness: 140, damping: 23})},
+                            style: {opacity: spring(1, {stiffness: 90, damping: 26})},
                           }))}>
-          {interpolatedStyles => {console.log(interpolatedStyles);
-            return <div>
+          {interpolatedStyles => (
+            <div>
               {interpolatedStyles.map(config => (
-                <div key={config.key} style={config.style}>
-                  {config.data}
+                <div key={config.key}>
+                  {React.cloneElement(config.data, {style: config.style})}
                 </div>
               ))}
             </div>
-          }}
+          )}
         </TransitionMotion>
         <Footer />
       </div>

@@ -3,7 +3,7 @@
   "title": "HOTW: Tornado Chasing with Clojure",
   "author": "Terry Keeney",
   "subHead": "Will my quest to learn Clojure aid me in my quest to spot a twister?",
-  "tags": ["clojure","hack"],
+  "tags": ["mobile","hack"],
   "published": "Sun Feb 14 2016 00:36:41 GMT-0800 (PST)"
 }
 ---

@@ -28,20 +28,21 @@
 .subhead {
   /*font-family: "refrigerator-deluxe";*/
   /*font-style: italic;*/
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 300;
   letter-spacing: 0.05em;
   line-height: 32px;
   color: #444;
+  padding-top: 10px;
 }
 
 .preview-block h1 {
   font-family: "refrigerator-deluxe";
   margin: 0px;
   font-weight: 100;
-  font-size: 42px;
-  letter-spacing: 0.05em;
-  padding: 0px 0 30px;
+  font-size: 36px;
+  /*letter-spacing: 0.05em;*/
+  padding: 0px 0 20px;
 }
 
 .preview-block a {
@@ -82,8 +83,7 @@
   color: #bbb;
   font-weight: 400;
   font-family: "refrigerator-deluxe";
-  margin-bottom: 0;
-  margin-bottom: 20px;
+  /*margin-bottom: 20px;*/
   letter-spacing: 2px;
 }
 

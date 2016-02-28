@@ -3,7 +3,7 @@
   "title": "Some Sweet Post",
   "author": "Sam Mussell",
   "subHead": "This is the single best post known to man.",
-  "tags": ["awesomeness", "face goodness"],
+  "tags": ["data viz", "face goodness"],
   "published": "Sun Feb 10 1999 00:36:41 GMT-0800 (PST)"
 }
 ---
