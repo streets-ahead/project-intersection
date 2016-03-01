@@ -14,7 +14,9 @@ export default function(props) {
         </div>
         <div className={footerStyles['in-touch']}>
           <h2>Keep In Touch</h2>
-          <p></p>
+          <p><a href="https://twitter.com/smussell">@smussell</a></p>
+          <p><a href="https://twitter.com/tkeeney">@tkeeney</a></p>
+          <p><a href="mailto:devs@salabs.io">devs@salabs.io</a></p>
         </div>
       </div>
     </footer>

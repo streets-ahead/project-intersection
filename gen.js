@@ -28,7 +28,12 @@ function generate() {
   function saveFile(file, output) {
     console.info('SAVING: ', file);
     axios.get(URL + '/' + file).then((result) => {
-      fs.writeFile('dist/' + (output || file), 
+      const dest = (output || file);
+      if(dest.match(/.html$/i) !== null) {
+        result.data = result.data.replace('/node_modules/normalize.css/normalize.css', '/static/normalize.css');
+        result.data = result.data.replace('<!-- stylesheet -->', '<link rel="stylesheet" href="/static/styles.css">');
+      }
+      fs.writeFile('dist/' + dest, 
                   endsWith(file, '.json') ? JSON.stringify(result.data) : result.data, 
                   () => {});
     });  
