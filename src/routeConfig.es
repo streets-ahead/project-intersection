@@ -10,12 +10,16 @@ const About = (props) => <span/>;
 
 const Noop = () => <span/>;
 
+const track = (nextState) => {
+  ga('send', 'pageview', nextState.location.pathname);
+};
+
 const routes = [{ 
   path: '/',
   component: Home,
   childRoutes: [
-    {path: 'pages', component: About},
-    {path: 'posts', component: Post}
+    {path: 'pages', component: About, onEnter: track},
+    {path: 'posts', component: Post, onEnter: track}
   ]
 }];
 

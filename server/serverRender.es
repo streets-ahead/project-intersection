@@ -28,7 +28,6 @@ export default (req, res, next) => {
   }
   
   match({routes: routeConfig, location: req.path}, async (error, redirectLocation, renderProps) => {
-    
     try {
       if (error) {
         res.status(500).send(error.message);
@@ -44,7 +43,7 @@ export default (req, res, next) => {
         if(renderProps.params.path) {
           let {pathname} = renderProps.location;
           pathname = pathname.split('/')[1] + '/' + renderProps.params.path;
-          appState[pathname] = await await api.getContent(pathname, "http://localhost:3000");
+          appState[pathname] = await api.getContent(pathname, "http://localhost:3000");
         }
         
         const $ = cheerio.load(INDEX_HTML);
@@ -53,6 +52,7 @@ export default (req, res, next) => {
           <RouterContext createElement={createElement} initialAppState={appState} {...renderProps} />   
         );
         $('head').append(`<script>window._AppState_ = ${JSON.stringify(appState)}</script>`);
+        $('#dev-mode').remove();
         $('#root').html(content);
         res.send($.html());
         return;
