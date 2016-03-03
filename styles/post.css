@@ -91,7 +91,7 @@
   border-radius: 5px;
 }
 
-.post-container p, .post-container ul, .post-container h1, .post-container h2, .post-container h3, .post-container h4, .post-container h5, .post-container h6 {
+.post-container p, .post-container ul, .post-container ol, .post-container h1, .post-container h2, .post-container h3, .post-container h4, .post-container h5, .post-container h6 {
   line-height: 1.9em;
   letter-spacing: 0.04em;
   margin: 32px 0;
@@ -108,7 +108,7 @@
   padding: 60px 0;
 }
 
-.post-body p, .post-body ul, .post-body h1, .post-body h2, .post-body h3, .post-body h4, .post-body h5, .post-body h6 {
+.post-body p, .post-body > ul, .post-body > ol, .post-body h1, .post-body h2, .post-body h3, .post-body h4, .post-body h5, .post-body h6 {
   max-width: 800px;
   margin-left: auto;
   margin-right: auto;
@@ -126,6 +126,12 @@
   padding: 20px;
   border-top: 1px solid #ddd;
   border-bottom: 1px solid #ddd;
+}
+
+.post-body img {
+  display: block;
+  margin: 20px auto;
+  max-width: 100%;
 }
 
 .post-body code { 

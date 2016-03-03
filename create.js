@@ -12,7 +12,8 @@ prompt.start();
 
 const authors = [
   "Sam Mussell",
-  "Terry Keeney"
+  "Terry Keeney",
+  "Dana Reynolds"
 ];
 
 function toChoices(list) {
