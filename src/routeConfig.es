@@ -11,7 +11,9 @@ const About = (props) => <span/>;
 const Noop = () => <span/>;
 
 const track = (nextState) => {
-  ga('send', 'pageview', nextState.location.pathname);
+  if(typeof ga !== "undefined") {
+    ga('send', 'pageview', nextState.location.pathname);
+  }
 };
 
 const routes = [{ 

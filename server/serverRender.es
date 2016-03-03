@@ -52,7 +52,6 @@ export default (req, res, next) => {
           <RouterContext createElement={createElement} initialAppState={appState} {...renderProps} />   
         );
         $('head').append(`<script>window._AppState_ = ${JSON.stringify(appState)}</script>`);
-        $('#dev-mode').remove();
         $('#root').html(content);
         res.send($.html());
         return;

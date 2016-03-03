@@ -26,10 +26,11 @@ function generate() {
   saveFile('', 'index.html');
 
   function saveFile(file, output) {
-    console.info('SAVING: ', file);
+    console.info('[GENERATOR] SAVING: ', file);
     axios.get(URL + '/' + file).then((result) => {
       const dest = (output || file);
       if(dest.match(/.html$/i) !== null) {
+        result.data = result.data.replace('<script id="devMode">window.DEV_MODE = true;</script>', '');
         result.data = result.data.replace('/node_modules/normalize.css/normalize.css', '/static/normalize.css');
         result.data = result.data.replace('<!-- stylesheet -->', '<link rel="stylesheet" href="/static/styles.css">');
       }
