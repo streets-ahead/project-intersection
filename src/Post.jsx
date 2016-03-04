@@ -14,7 +14,8 @@ const colorMap = {
   "mobile": "#EA6045", 
   "react.js": "#3F5666", 
   "data viz": "#61B9D0", 
-  "experiment": "#F8CA4D"
+  "swift": "#F8CA4D",
+  "android": "#9ACD00"
 };
 
 export default class Post extends React.Component {

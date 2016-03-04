@@ -94,4 +94,8 @@
   & body.post-open {
     overflow: hidden;
   }
+  
+  & a {
+    color: #61B9D0;
+  }
 }

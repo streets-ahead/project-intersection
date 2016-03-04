@@ -3,7 +3,7 @@
   "title": "HOTW: Tornado Chasing with Clojure",
   "author": "Terry Keeney",
   "subHead": "Will my quest to learn Clojure aid me in my quest to spot a twister?",
-  "tags": ["data viz","clojure", "hack"],
+  "tags": ["android", "data viz","clojure", "hack"],
   "published": "Fri Jul 24 2015 14:40:58 GMT-0700 (PDT)"
 }
 ---
@@ -52,6 +52,8 @@ Below is the result of my hour-ish of tinkering.  Working from the inside out we
   2. Light Table is awesome for real-time inline feedback as you code
   3. Next Up - barring the introduction of something shiny into my field of view - a bot to automatically calculate and send me the results
   4. AND as of this writing the nearest tornado over the last 48 hours was 274 miles away in Nebraska!
+
+
 ![](/images/twisters.png)
 
 
