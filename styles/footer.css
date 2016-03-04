@@ -84,9 +84,13 @@
 }
 
 @media screen and (max-width:760px) { 
+  .footer {
+    padding: 20px;
+  }
+  
   .recent, .about { 
     width: 100%; 
-    padding: 0 20px;
+    padding: 0px;
   }
   
   .about {
@@ -96,11 +100,13 @@
   .in-touch {
     & ul {
       margin: 0;
+      padding: 0;
       text-align: left;
     }
     
     & li {
       padding: 10px;
+      display: block;
     }
   }
 }

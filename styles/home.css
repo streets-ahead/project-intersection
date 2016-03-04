@@ -2,19 +2,6 @@
   max-width: 760px;
 }
 
-.home {
-  font-family: "adelle";
-}
-
-.home h1, .home h2, .home h3, .home h4, .home h5, .home h6 {
-  font-family: "refrigerator-deluxe";
-  font-weight: 400;
-}
-
-.home a {
-  text-decoration: none;
-}
-
 .first-post {
   padding-bottom: 60px;
 }

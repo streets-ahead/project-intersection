@@ -2,6 +2,23 @@
   & .hidden {
     display: none;
   }
+  
+  * body {
+    font-family: "adelle";
+  }
+
+  & h1, & h2, & h3, & h4, & h5, & h6 {
+    font-family: "refrigerator-deluxe";
+    font-weight: 400;
+  }
+
+  & a {
+    text-decoration: none;
+  }
+  
+  & a:hover {
+    text-decoration: underline;
+  }
 
   & .hljs {
     display: block;
@@ -93,6 +110,12 @@
 
   & body.post-open {
     overflow: hidden;
+  }
+  
+  @media screen and (max-width:760px) { 
+    & body.post-open {
+      position: fixed;
+    }  
   }
   
   & a {

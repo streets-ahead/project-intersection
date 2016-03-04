@@ -172,17 +172,16 @@
   display: block;
 }
 
-@media screen and (max-width:320px) { 
+@media screen and (max-width:480px) { 
   .subhead {
     display: none;
+  }
+  .spacer {
+    height: 0;
   }
 }
 
 @media screen and (max-width:760px) { 
-  .spacer {
-    height: 0;
-  }
-  
   .header-content {
     padding: 100px 20px;  
   }
