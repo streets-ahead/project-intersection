@@ -6,6 +6,7 @@ import homeStyle from '../styles/home.css';
 import {Link} from 'react-router';
 import range from 'lodash/range';
 import {spring, StaggeredMotion} from 'react-motion';
+import Footer from './Footer';
 
 const randomBetween = (from, to) => Math.floor(Math.random() * (to - from + 1) + from);
 
@@ -66,7 +67,7 @@ export default class Post extends React.Component {
           <div className={styles['post-body']} dangerouslySetInnerHTML={{__html: body}} /> 
         </div>
         <footer className="footer">
-          
+          <Footer/>
         </footer>
       </div>
     )

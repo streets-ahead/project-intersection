@@ -5,8 +5,7 @@ import cloneDeep from 'lodash/cloneDeep';
 // import About from './About';
 import Post from './Post';
 
-const About = (props) => <span/>;
-// const Post = (props) => <div>Hello world</div>;
+const Page = (props) => <span/>;
 
 const Noop = () => <span/>;
 
@@ -16,12 +15,18 @@ const track = (nextState) => {
   }
 };
 
+const componentForType = (DefaultTemplate) => {
+  return ({template, ...props}) => {
+    return (template ? React.createElement(template, props) : <DefaultTemplate {...props} />);
+  }
+}
+
 const routes = [{ 
   path: '/',
   component: Home,
   childRoutes: [
-    {path: 'pages', component: About, onEnter: track},
-    {path: 'posts', component: Post, onEnter: track}
+    {path: 'pages', component: componentForType(Page), onEnter: track},
+    {path: 'posts', component: componentForType(Post), onEnter: track}
   ]
 }];
 

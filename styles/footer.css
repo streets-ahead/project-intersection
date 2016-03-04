@@ -19,24 +19,39 @@
   margin-top: 0;
 }
 
-.footer p {
-  line-height: 1.7em;
-  font-weight: 200;
+.footer p, 
+.footer > ul, 
+.footer > ol, 
+.footer h1, 
+.footer h2 {  
+  font-size: 14px;
+  max-width: 760px;
+  line-height: 24px;
+  letter-spacing: 0.04em;
+
 }
+
+.footer h1 {font-size: 36px}
+.footer h2 { font-size: 32px }
+.footer h3 { font-size: 28px }
+.footer h4 { font-size: 24px }
+.footer h5 { font-size: 20px }
+.footer h6 { font-size: 16px }
+
 
 .container {
   display: flex;
-  max-width: 960px;
+  max-width: 760px;
   margin: 0 auto;
-  padding: 40px 20px;
+  padding: 40px 0px;
 }
 
 .in-touch {
   width: 50%;
-  padding: 0 20px 0 20px;
+  padding: 0 0px 0 32px;
 }
 
 .about {
   width: 50%;
-  padding: 0 30px 0 30px;
+  padding-right: 32px;
 }

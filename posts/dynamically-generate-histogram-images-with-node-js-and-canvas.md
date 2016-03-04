@@ -24,7 +24,7 @@ brew install cairo
 
 Here is the code used to render my histogram
 
-```
+```javascript
 var http = require('http');
 var Canvas = require('canvas');
 var url = require('url');
@@ -87,7 +87,7 @@ http.createServer(function (req, res) {
 	
 That's pretty much it, I just write my canvas out to a buffer and then write the buffer to the client.  Now I can use the following to call my service.
 
-	[http://localhost:8888/img.png?numbers=[2,4,1,3,2,10,5,2,2,1,4]](http://localhost:8888/img.png?numbers=[2,4,1,3,2,10,5,2,2,1,4])
+[http://localhost:8888/img.png?numbers=[2,4,1,3,2,10,5,2,2,1,4]](http://localhost:8888/img.png?numbers=[2,4,1,3,2,10,5,2,2,1,4])
 
 And I get:
 
@@ -95,7 +95,7 @@ And I get:
 
 I can also specify a different color…
 
-	[http://localhost:8888/img.png?numbers=[3,4,6,3,2,2,8,2,7,2,1,4]&color=EA6045](http://localhost:8888/img.png?numbers=[3,4,6,3,2,2,8,2,7,2,1,4]&color=EA6045)
+[http://localhost:8888/img.png?numbers=[3,4,6,3,2,2,8,2,7,2,1,4]&color=EA6045](http://localhost:8888/img.png?numbers=[3,4,6,3,2,2,8,2,7,2,1,4]&color=EA6045)
 
 Which looks like:
 
