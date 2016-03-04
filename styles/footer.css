@@ -3,6 +3,7 @@
   background-color: #2F3440;
   border-top: 1px solid #ddd; 
   color: white;
+  padding: 32px;
   
   & a {
     color: white;
@@ -26,7 +27,7 @@
 .footer h2 {  
   font-size: 14px;
   max-width: 760px;
-  line-height: 24px;
+  line-height: 32px;
   letter-spacing: 0.04em;
 
 }
@@ -42,13 +43,38 @@
 .container {
   display: flex;
   max-width: 760px;
-  margin: 0 auto;
-  padding: 40px 0px;
+  margin: 32px auto;
 }
 
 .in-touch {
+  & ul {
+    list-style: none;
+    text-align: center;
+    margin: 64px auto 32px;
+  }
+  
+  & li {
+    display: inline-block;
+    & img { vertical-align: middle; display: inline-block; padding-right: 5px;}
+    padding: 1px 32px;
+    line-height: 24px;
+  }
+}
+
+.recent {
+  padding-left: 32px;
   width: 50%;
-  padding: 0 0px 0 32px;
+  
+  & ul {
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+  }
+  
+  & li {
+    line-height: 32px;
+    font-size: 14px;
+  }
 }
 
 .about {

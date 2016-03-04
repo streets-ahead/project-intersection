@@ -15,8 +15,7 @@ const Preview = ({post, showPreview = false}) => {
           <h1>{post.title}</h1>
         </Link>
       </div>
-      <div style={{flex: 1}}></div>
-      <div style={{height: 120}}>
+      <div>
         <div className={previewStyle['date']}>
           {dateFormat(new Date(post.published), "mmm dd, yyyy")} / {post.author}
         </div>

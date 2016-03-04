@@ -2,6 +2,7 @@
 {
   "title": "Key Value Observing NSArray and NSDictionary",
   "author": "Sam Mussell",
+  "subHead": "In a world where everything is key value observable... dive a little deeper into using KVO with NSArray and NSDictionary",
   "tags": ["mobile","iOS","Objective-C"],
   "published": "Thu Sep 15 2011 10:11:16 GMT-0700 (PDT)"
 }

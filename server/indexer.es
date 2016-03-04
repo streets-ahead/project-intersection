@@ -85,6 +85,7 @@ export default function(sessions) {
       dirs.forEach(dir => {
         ind[dir] = values(contentFiles)
           .filter(p => p.slug.split('/')[0] === dir)
+          .filter(p => new Date(p.published).getTime() - new Date().getTime() < 0)
           .map(p => omit(p, ['body']))
           .sort((a, b) => {
             return (b.published ? new Date(b.published).getTime() : 0) - (a.published ? new Date(a.published).getTime() : 0)

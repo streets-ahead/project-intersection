@@ -3,7 +3,7 @@
   "title": "HOTW: Charting Immaturity with d3.js",
   "subHead": "In this the inaugural post of my Hack of the Week series I explore a question I've posed - at least to myself - several times.",
   "author": "Terry Keeney",
-  "tags": ["react.js","d3","hack"],
+  "tags": ["data viz","d3","hack"],
   "published": "Wed Jul 08 2015 17:20:00 GMT-0700 (PDT)"
 }
 ---

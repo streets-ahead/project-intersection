@@ -67,7 +67,7 @@ export default class Post extends React.Component {
           <div className={styles['post-body']} dangerouslySetInnerHTML={{__html: body}} /> 
         </div>
         <footer className="footer">
-          <Footer/>
+          <Footer index={this.props.appState.index} />
         </footer>
       </div>
     )

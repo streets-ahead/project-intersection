@@ -33,7 +33,7 @@
   composes: container-width;
   text-align: center;
   margin: 0px auto;
-  padding: 60px 0;
+  padding: 32px 0;
   & p {
     margin-top: 0;
   }
@@ -70,6 +70,6 @@
 
 .container {
   composes: container-width;
-  margin: 0px auto;
-  padding: 0 20px;
+  margin: 32px auto;
+  padding: 0px;
 }

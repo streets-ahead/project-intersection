@@ -117,7 +117,7 @@ export default class Home extends Component {
             </div>
           )}
         </TransitionMotion>
-        <Footer />
+        <Footer  index={index} />
       </div>
     )
   }
