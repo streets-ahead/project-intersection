@@ -45,7 +45,7 @@ export default class Post extends React.Component {
           </h1>
         </div>
         <div className={styles['header']} style={{height: this.getWinHeight(), backgroundColor: color}}>
-          <div style={{height: "15%"}}></div>
+          <div className={styles['spacer']}></div>
           <StaggeredMotion defaultStyles={range(4).map((i) => ({t: 300}))}
                           styles={prev => prev.map((_, i) => (
                             i === 0 ? {t: spring(0, config)} : {t: spring(prev[i - 1].t, config)}

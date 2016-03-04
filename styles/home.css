@@ -58,7 +58,8 @@
   padding-left: 10px;
 }
 
-@media (max-width: 600px) {
+@media screen and (max-width:760px) { 
+  
   .separator {
     display: none;
   }
@@ -70,6 +71,6 @@
 
 .container {
   composes: container-width;
-  margin: 32px auto;
+  margin: 0px auto;
   padding: 0px;
 }

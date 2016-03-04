@@ -42,6 +42,7 @@
 
 .container {
   display: flex;
+  flex-wrap: wrap-reverse;
   max-width: 760px;
   margin: 32px auto;
 }
@@ -80,4 +81,26 @@
 .about {
   width: 50%;
   padding-right: 32px;
+}
+
+@media screen and (max-width:760px) { 
+  .recent, .about { 
+    width: 100%; 
+    padding: 0 20px;
+  }
+  
+  .about {
+    margin-top: 32px;
+  }
+  
+  .in-touch {
+    & ul {
+      margin: 0;
+      text-align: left;
+    }
+    
+    & li {
+      padding: 10px;
+    }
+  }
 }

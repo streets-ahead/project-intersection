@@ -92,8 +92,9 @@
   margin: 5px 0px;
 }
 
-@media (max-width: 600px) {
+@media screen and (max-width:760px) { 
   .preview-block {
     width: 100%;
+    padding: 0 20px;
   }
 }
