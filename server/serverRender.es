@@ -7,6 +7,7 @@ import routeConfig from '../src/routeConfig';
 import cheerio from 'cheerio';
 import api from '../src/api';
 import reqReload from 'require-reload';
+import url from 'url';
 
 const reload = reqReload(require);
 
@@ -27,6 +28,11 @@ export default (req, res, next) => {
     return;
   }
   
+  let port = 80;
+  const matches = req.headers.host.match(/:(.+)$/);
+  if(matches) {
+    port = matches[1];
+  }
   match({routes: routeConfig, location: req.path}, async (error, redirectLocation, renderProps) => {
     try {
       if (error) {
@@ -37,13 +43,13 @@ export default (req, res, next) => {
       if(renderProps) {
         console.log('[TOY-SERVER]  ', `Matched route: ${renderProps.location.pathname}`);
         
-        const index = await api.getIndex("http://localhost:3000");
+        const index = await api.getIndex(`http://localhost:${port}`);
         const appState = {index};
       
         if(renderProps.params.path) {
           let {pathname} = renderProps.location;
           pathname = pathname.split('/')[1] + '/' + renderProps.params.path;
-          appState[pathname] = await api.getContent(pathname, "http://localhost:3000");
+          appState[pathname] = await api.getContent(pathname, `http://localhost:${port}`);
         }
         
         const $ = cheerio.load(INDEX_HTML);

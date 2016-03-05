@@ -7,9 +7,10 @@ const axios = require('axios');
 const routes = require('./src/routeConfig').routes;
 const endsWith = require('lodash/endsWith');
 
-const URL = "http://localhost:7777";
+const PORT = 7777;
+const URL = `http://localhost:${PORT}`;
 
-const app = require('./server').app.listen(7777, generate);
+const app = require('./server').app.listen(PORT, generate);
 
 const promises = [];
 
@@ -45,7 +46,6 @@ function generate() {
   }
   
   Promise.all(promises).then(() => {
-    console.log('qwerqwerqwerqwerqwer', 'DONE');
     app.close(function(){
       process.exit();
     });
