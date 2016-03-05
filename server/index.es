@@ -40,18 +40,22 @@ app.use(html5Index(routes[0].childRoutes.map(d => d.path)));
 
 app.use(express.static("."));
 
-const server = http.createServer(app);
+export {app};
 
-server.listen(3000);
+export default function() {
+  const server = http.createServer(app);
 
-const wss = new WebSocketServer({server: server});
+  server.listen(3000);
 
-let id = 1;
-wss.on('connection', function(ws) {
-  console.log('[TOY SERVER] ', 'client connected');
-  let wsId = id++;
-  sessions[wsId] = ws;
-  ws.on('close', function() {
-    delete sessions[wsId];
+  const wss = new WebSocketServer({server: server});
+
+  let id = 1;
+  wss.on('connection', function(ws) {
+    console.log('[TOY SERVER] ', 'client connected');
+    let wsId = id++;
+    sessions[wsId] = ws;
+    ws.on('close', function() {
+      delete sessions[wsId];
+    });
   });
-});
+};

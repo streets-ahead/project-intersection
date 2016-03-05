@@ -1,15 +1,17 @@
 #!/usr/local/bin/node
-
+"use strict";
 require('./serverSetup');
-var glob = require('glob');
-var fs = require('fs-extra');
-var axios = require('axios');
-var routes = require('./src/routeConfig').routes;
-var endsWith = require('lodash/endsWith');
+const glob = require('glob');
+const fs = require('fs-extra');
+const axios = require('axios');
+const routes = require('./src/routeConfig').routes;
+const endsWith = require('lodash/endsWith');
 
-var URL = "http://localhost:3000";
+const URL = "http://localhost:7777";
 
-axios.head(URL).then(generate, (e) => console.error("[ERROR] The server must be running when using the generator"));
+const app = require('./server').app.listen(7777, generate);
+
+const promises = [];
 
 function generate() {
   const dirs = routes[0].childRoutes.map(r => r.path);
@@ -27,16 +29,25 @@ function generate() {
 
   function saveFile(file, output) {
     console.info('[GENERATOR] SAVING: ', file);
-    axios.get(URL + '/' + file).then((result) => {
+    promises.push(axios.get(URL + '/' + file).then((result) => {
       const dest = (output || file);
       if(dest.match(/.html$/i) !== null) {
         result.data = result.data.replace('<script id="devMode">window.DEV_MODE = true;</script>', '');
         result.data = result.data.replace('/node_modules/normalize.css/normalize.css', '/static/normalize.css');
         result.data = result.data.replace('<!-- stylesheet -->', '<link rel="stylesheet" href="/static/styles.css">');
       }
-      fs.writeFile('dist/' + dest, 
-                  endsWith(file, '.json') ? JSON.stringify(result.data) : result.data, 
-                  () => {});
-    });  
+      return new Promise((resolve, reject) => {
+        fs.writeFile('dist/' + dest, 
+                    endsWith(file, '.json') ? JSON.stringify(result.data) : result.data, 
+                    resolve);
+      });
+    }));
   }
+  
+  Promise.all(promises).then(() => {
+    console.log('qwerqwerqwerqwerqwer', 'DONE');
+    app.close(function(){
+      process.exit();
+    });
+  });
 }

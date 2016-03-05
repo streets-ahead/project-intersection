@@ -1,2 +1,2 @@
 require('./serverSetup');
-require('./server');
+require('./server').default();

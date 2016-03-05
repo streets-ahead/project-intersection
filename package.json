@@ -25,7 +25,6 @@
     "extract-text-webpack-plugin": "^1.0.1",
     "express": "^4.13.4",
     "fs-extra": "^0.26.5",
-    "highlight": "^0.2.4",
     "highlight.js": "^9.2.0",
     "less": "^2.6.0",
     "postcss-browser-reporter": "^0.4.0",

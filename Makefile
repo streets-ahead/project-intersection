@@ -6,7 +6,7 @@ i:
 install: i
 	
 gen: clean
-	node gen.js
+	NODE_ENV=build node gen.js
 	NODE_ENV=production ./node_modules/.bin/webpack --config ./webpack.config.min.js
 	cp -R images dist/
 	cp node_modules/normalize.css/normalize.css dist/static/
