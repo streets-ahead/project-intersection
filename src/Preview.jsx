@@ -17,7 +17,7 @@ const Preview = ({post, showPreview = false}) => {
       </div>
       <div>
         <div className={previewStyle['date']}>
-          {dateFormat(new Date(post.published), "mmm dd, yyyy")} / {post.author}
+          <span className={previewStyle['date-value']}>{dateFormat(new Date(post.published), "mmm dd, yyyy")}</span> / {post.author}
         </div>
         <p className={previewStyle['subhead']}>{post.subHead}</p>
       </div>

@@ -27,7 +27,7 @@
 .footer h2 {  
   font-size: 14px;
   max-width: 760px;
-  line-height: 32px;
+  line-height: 24px;
   letter-spacing: 0.04em;
 
 }
@@ -73,7 +73,7 @@
   }
   
   & li {
-    line-height: 32px;
+    margin-bottom: 24px;
     font-size: 14px;
   }
 }
