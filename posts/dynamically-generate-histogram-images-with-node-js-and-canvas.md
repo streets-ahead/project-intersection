@@ -3,7 +3,7 @@
   "title": "Dynamically Generate Histogram Images with Node.js and Canvas",
   "subHead": "",
   "author": "Sam Mussell",
-  "tags": ["swift", "javascript", "node"],
+  "tags": ["javascript", "node"],
   "published": "Thu Aug 09 2012 19:52:17 GMT-0700 (PDT)"
 }
 ---
