@@ -40,7 +40,7 @@ export default function(Component, type) {
       const content = this.props.appState[type + '/' + this.props.params.path];
       
       if(!content) return (
-        <div style={{height: "100%", position: "fixed", backgroundColor: "white", width: "100%"}}></div>  
+        <div className="loading"></div>  
       );
         
       return <Component content={content} winHeight={this.getWinHeight()} {...this.props} />;

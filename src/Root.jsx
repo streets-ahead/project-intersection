@@ -2,12 +2,13 @@ import React, {Component} from 'react';
 import api from './api';
 import merge from 'lodash/merge';
 import {Link} from 'react-router';
-import style from '../styles/home.css';
 import Preview from './Preview';
 import chunk from 'lodash/chunk';
 import classNames from 'classnames';
 import Footer from './Footer';
 import {spring, TransitionMotion} from 'react-motion';
+
+import style from '../styles/home.css';
 
 export default class Root extends Component {
   constructor(props) {
@@ -66,7 +67,7 @@ export default class Root extends Component {
     }
     
     if(!index.posts.length) return (
-      <div style={{height: "100%", position: "fixed", backgroundColor: "white", width: "100%"}}></div>  
+      <div className="loading"></div>  
     );
     
     return (
