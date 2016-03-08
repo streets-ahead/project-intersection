@@ -14,7 +14,7 @@ I grew up smack dab in the middle of Tornado Alley and in the ten or so years I 
 I had some close calls in the last few years - but I always JUST missed it - or was out of town the ONE week where I stood a reasonable chance.  This week's hack won't actually help me see the tornado - but can go the extra step in torturing me and letting me know just how close I was to achieving my *dream*.  Because I also have a strong interest in working more in functional languages I'll use my attempts to learn clojure to determine just how angry I should be on a daily basis.
 
 The good folks at the University of Michigan have put together a decent enough site that I'll use for collecting my data.  They post reported [tornados over the last 48 hours](http://www.tornadopaths.org/) - and it's this set I'll run daily.  I'll be using the haversine formula to calculate distances - which will be good enough for my purposes - and because I'm either lazy or opportunistic googling returned the following clojure implementation of haversine in [gist form](https://gist.github.com/shayanjm/39418c8425c2a66d480f).  I'll be using it as is except to swap in the radius in miles as I was born in the States and I'm allergic to metric by birth.
-<script src="https://gist.github.com/shayanjm/39418c8425c2a66d480f.js"></script>
+
 
 Below is the result of my hour-ish of tinkering.  Working from the inside out we have:
 

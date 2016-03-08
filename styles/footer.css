@@ -29,7 +29,10 @@
   max-width: 760px;
   line-height: 24px;
   letter-spacing: 0.04em;
+}
 
+.footer ul {
+  padding: 0;
 }
 
 .footer h1 {font-size: 36px}
