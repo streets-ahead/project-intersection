@@ -5,14 +5,14 @@ export default function(Component, type) {
   class FetchContainer extends React.Component {
     componentWillMount() {
       this.updateSize = () => this.forceUpdate();
-      if(typeof window !== undefined) {
+      if(typeof window !== "undefined") {
         window.addEventListener('resize', this.updateSize);
       }
       this.update(this.props);
     }
     
     componentWillUnmount() {
-      if(typeof window !== undefined) {
+      if(typeof window !== "undefined") {
         window.removeEventListener('resize', this.updateSize);  
       }
     }

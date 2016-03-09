@@ -4,25 +4,24 @@ require('./serverSetup');
 const glob = require('glob');
 const fs = require('fs-extra');
 const axios = require('axios');
-const routes = require('./src/routeConfig').routes;
 const endsWith = require('lodash/endsWith');
 
 const PORT = 7777;
 const URL = `http://localhost:${PORT}`;
 
-const app = require('./server').app.listen(PORT, generate);
+const app = require('./server').app.listen(PORT, () => {
+  axios.get(`${URL}/index.json`).then((res) => generate(res.data));
+});
 
 const promises = [];
 
-function generate() {
-  const dirs = routes[0].childRoutes.map(r => r.path);
-  dirs.forEach((d) => fs.mkdirsSync(__dirname + '/dist/' + d));
-
-  const files = glob.sync(`./@(${dirs.join('|')})/*.md`);
-  files.forEach((f) => {
-    const file = f.replace(/(^\.\/)|(\.md$)/ig, '');
-    saveFile(file + '.html');
-    saveFile(file + '.json');
+function generate(index) {    
+  Object.keys(index).forEach((type) => {
+    fs.mkdirsSync(__dirname + '/dist/' + type);
+    index[type].forEach((obj) => {
+      saveFile(obj.slug + '.html');
+      saveFile(obj.slug + '.json');
+    });
   });
 
   saveFile('index.json');
@@ -30,24 +29,22 @@ function generate() {
 
   function saveFile(file, output) {
     console.info('[GENERATOR] SAVING: ', file);
-    promises.push(axios.get(URL + '/' + file).then((result) => {
+    promises.push(axios.get(`${URL}/${file}`).then((result) => {
       const dest = (output || file);
-      if(dest.match(/.html$/i) !== null) {
+      if(endsWith(dest, '.html')) {
         result.data = result.data.replace('<script id="devMode">window.DEV_MODE = true;</script>', '');
         result.data = result.data.replace('/node_modules/normalize.css/normalize.css', '/static/normalize.css');
         result.data = result.data.replace('<!-- stylesheet -->', '<link rel="stylesheet" href="/static/styles.css">');
+      } else {
+        result.data = JSON.stringify(result.data);
       }
       return new Promise((resolve, reject) => {
-        fs.writeFile('dist/' + dest, 
-                    endsWith(file, '.json') ? JSON.stringify(result.data) : result.data, 
-                    resolve);
+        fs.writeFile('dist/' + dest, result.data, resolve);
       });
     }));
   }
   
   Promise.all(promises).then(() => {
-    app.close(function(){
-      process.exit();
-    });
+    app.close(() => process.exit());
   });
 }
