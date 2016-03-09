@@ -1,7 +1,6 @@
 #!/usr/local/bin/node
-
 require('./serverSetup');
-var fs = require('fs');
+var fs = require('fs-extra');
 var routes = require('./src/routeConfig').routes;
 
 const dirs = routes[0].childRoutes.map(r => r.path);
@@ -40,15 +39,17 @@ prompt.get({
         required: true
       }
     }
-  }, function (err, result) {
+  }, (err, result) => {
     if(err) process.exit(1);
     
     var slug = result.title.toLowerCase()
         .replace(/(^\s+)|(\s+$)/, '')
         .replace(/[^a-z0-9\s]/g, '-')
         .replace(/(\s|-)+/g, '-');
-        
-    fs.writeFileSync('./' + dirs[result.type-1] + '/' + slug + '.md', 
+    
+    const fileName = `./${dirs[result.type-1]}/${slug}.md`;
+    fs.ensureFileSync(fileName);
+    fs.writeFileSync(fileName, 
 `---
 {
   "title": "${result.title}",
