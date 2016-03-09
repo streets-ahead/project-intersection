@@ -47,15 +47,15 @@ export default function() {
 
   server.listen(3000);
 
-  const wss = new WebSocketServer({server: server});
+  const wss = new WebSocketServer({server});
 
   let id = 1;
-  wss.on('connection', function(ws) {
+  wss.on('connection', (ws) => {
     console.log('[TOY SERVER] ', 'client connected');
     let wsId = id++;
     sessions[wsId] = ws;
-    ws.on('close', function() {
-      delete sessions[wsId];
+    ws.on('close', () => {
+      delete sessions[wsId]
     });
   });
 };

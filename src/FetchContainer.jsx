@@ -27,8 +27,12 @@ export default function(Component, type) {
       return typeof window !== 'undefined' ? window.innerHeight : 1200;
     }
     
+    fullPath({params}) {
+      return `${type}/${params.path}`;
+    }
+    
     update(props) {
-      const fullPath = type + '/' + props.params.path;
+      const fullPath = this.fullPath(props);
       const content = this.props.appState[fullPath];
       if(!content) {
         api.getContent(fullPath)
@@ -37,13 +41,15 @@ export default function(Component, type) {
     }
     
     render() {
-      const content = this.props.appState[type + '/' + this.props.params.path];
+      const content = this.props.appState[this.props];
       
-      if(!content) return (
-        <div className="loading"></div>  
-      );
+      if(!content) return <div className="loading"></div>;
         
-      return <Component content={content} winHeight={this.getWinHeight()} {...this.props} />;
+      return (
+        <Component content={content} 
+                  winHeight={this.getWinHeight()} 
+                  {...this.props} />
+      );
     }
   }
   

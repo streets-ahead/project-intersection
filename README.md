@@ -7,7 +7,7 @@ Different content types can be configured as react-router routes.  The following
 ```
 const routes = [{ 
   path: '/',
-  component: Home,
+  component: Root,
   childRoutes: [
     {path: 'pages', component: Page},
     {path: 'posts', component: Post}

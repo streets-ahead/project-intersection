@@ -1,12 +1,12 @@
 import React from 'react';
 import dateFormat from 'dateformat';
-import styles from '../styles/post.css';
-import previewStyle from '../styles/preview.css';
-import homeStyle from '../styles/home.css';
 import {Link} from 'react-router';
 import range from 'lodash/range';
 import {spring, StaggeredMotion} from 'react-motion';
-import Footer from './Footer';
+
+import styles from '../styles/post.css';
+import previewStyle from '../styles/preview.css';
+import homeStyle from '../styles/home.css';
 
 const randomBetween = (from, to) => Math.floor(Math.random() * (to - from + 1) + from);
 

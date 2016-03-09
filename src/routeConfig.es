@@ -2,20 +2,14 @@ import React from 'react';
 import Home from './Home';
 import FetchContainer from './FetchContainer';
 import cloneDeep from 'lodash/cloneDeep';
-// import About from './About';
 import Root from './Root';
 import Post from './Post';
 
 const Page = (props) => <span/>;
 
-const Noop = () => <span/>;
-
-const componentForType = (DefaultTemplate) => {
-  return ({template, ...props}) => {
-    return (template ? React.createElement(template, props) : <DefaultTemplate {...props} />);
-  }
-}
-
+/**
+ * Configure the following routes to add more content types
+ */
 const routes = [{ 
   path: '/',
   component: Root,
@@ -26,13 +20,18 @@ const routes = [{
   ]
 }];
 
-export { routes };
+function componentForType(DefaultTemplate) {
+  return ({template, ...props}) => {
+    return (template ? React.createElement(template, props) : <DefaultTemplate {...props} />);
+  }
+}
 
 const track = (nextState) => {
   if(typeof ga !== "undefined") {
     ga('send', 'pageview', nextState.location.pathname);
   }
 };
+
 const enhancedRoutes = cloneDeep(routes);
 enhancedRoutes[0].childRoutes.forEach((p) => {
   p.component = FetchContainer(p.component, p.path.split('/')[0]);
@@ -40,4 +39,5 @@ enhancedRoutes[0].childRoutes.forEach((p) => {
   p.path += '/(:path).html';
 });
 
+export { routes };
 export default enhancedRoutes;

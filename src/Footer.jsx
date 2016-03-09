@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router';
+
 import footerStyles from '../styles/footer.css';
 
 export default function({index}) {

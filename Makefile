@@ -11,10 +11,8 @@ gen: clean
 	cp -R images dist/
 	cp node_modules/normalize.css/normalize.css dist/static/
 	
-
 serve:
 	NODE_ENV=development node index.js
-	
 	
 create: 
 	node create.js

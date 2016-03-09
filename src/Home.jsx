@@ -1,13 +1,7 @@
 import React, {Component} from 'react';
-import api from './api';
-import merge from 'lodash/merge';
-import {Link} from 'react-router';
-import style from '../styles/home.css';
 import Preview from './Preview';
-import chunk from 'lodash/chunk';
-import classNames from 'classnames';
-import Footer from './Footer';
-import {spring, TransitionMotion} from 'react-motion';
+
+import style from '../styles/home.css';
 
 export default function Home({appState: {index}}) {
   return (

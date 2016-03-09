@@ -24,12 +24,12 @@
   max-width: 760px;
   padding: 100px 200px 0 0;
   color: white;
-}
-
-.header-content h1 {
-  font-size: 54px;
-  font-weight: 100;
-  margin: 0;
+  
+  & h1 {
+    font-size: 54px;
+    font-weight: 100;
+    margin: 0;
+  }
 }
 
 .nav-bar {
@@ -42,24 +42,25 @@
   width: 100%;
   padding: 10px;
   border-bottom: 1px solid rgba(225, 225, 225, 0.8);
-}
-
-.nav-bar h1 {
-  letter-spacing: 2px;
-  font-size: 20px;  
-  margin: 0;
-}
-.nav-bar h1 a, .nav-bar h1 a:visited {
-  color: black;
+  
+  & h1 {
+    letter-spacing: 2px;
+    font-size: 20px;  
+    margin: 0;
+  }
+  
+  & h1 a, & h1 a:visited {
+    color: black;
+  }
+  
+  & img {
+    display: inline-block;
+    margin-right: 10px;
+  }
 }
 
 .spacer {
   height: 20%;
-}
-
-.nav-bar img {
-  display: inline-block;
-  margin-right: 10px;
 }
 
 .tags-box {
@@ -97,73 +98,65 @@
 }
 
 .post-body {
-  padding: 32px 0;
-}
+  & {
+    padding: 32px 0;
+  }
 
-.post-body p, 
-.post-body ul, 
-.post-body ol, 
-.post-body h1, 
-.post-body h2, 
-.post-body h3, 
-.post-body h4, 
-.post-body h5, 
-.post-body h6,
-.post-body blockquote  {
-  font-size: 16px;
-  max-width: 760px;
-  line-height: 32px;
-  letter-spacing: 0.04em;
-  margin: 32px auto;
-}
+  & p, & ul, & ol, & h1, & h2, & h3, & h4, & h5, & h6, & blockquote  {
+    font-size: 16px;
+    max-width: 760px;
+    line-height: 32px;
+    letter-spacing: 0.04em;
+    margin: 32px auto;
+  }
 
-.post-body blockquote {
-  padding-left: 32px;
-  padding-right: 32px;
-}
+  & blockquote {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
 
-.post-body h1 {font-size: 36px}
-.post-body h2 { font-size: 32px }
-.post-body h3 { font-size: 28px }
-.post-body h4 { font-size: 24px }
-.post-body h5 { font-size: 20px }
-.post-body h6 { font-size: 16px }
+  & h1 { font-size: 36px; }
+  & h2 { font-size: 32px; }
+  & h3 { font-size: 28px; }
+  & h4 { font-size: 24px; }
+  & h5 { font-size: 20px; }
+  & h6 { font-size: 16px; }
 
+  & ul ul {
+    margin: 16px inherit;
+  }
 
-.post-body ul ul {
-  margin: 16px inherit;
-}
+  & pre {
+    background-color: #F7F7F7;
+    padding: 32px;
+    margin: 32px auto;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+  }
 
-.post-body pre {
-  background-color: #F7F7F7;
-  padding: 32px;
-  margin: 32px auto;
-  border-top: 1px solid #ddd;
-  border-bottom: 1px solid #ddd;
-}
+  & img {
+    display: block;
+    margin: 32px auto;
+    max-width: 100%;
+  }
 
-.post-body img {
-  display: block;
-  margin: 32px auto;
-  max-width: 100%;
-}
+  & code {
+    font-family: 'menlo', 'monaco', monospace;
+    font-size: 14px;
+  }
 
-.post-body code {
-  font-family: 'menlo', 'monaco', monospace;
-  font-size: 14px;
-}
+  & ul code, & p code, & ol code {
+    border: 1px solid #ddd;
+    background-color: #F7F7F7;
+  }
 
-.post-body ul code, .post-body p code, .post-body ol code {
-  border: 1px solid #ddd;
-  background-color: #F7F7F7;
-}
-
-.post-body pre code { 
-  line-height: 22px;
-  margin: 0px auto;
-  overflow-x: auto;
-  max-width: 760px;
-  display: block;
+  & pre code { 
+    line-height: 22px;
+    margin: 0px auto;
+    overflow-x: auto;
+    max-width: 760px;
+    display: block;
+  }
 }
 
 @media screen and (max-width:480px) { 
@@ -183,22 +176,24 @@
   .header-content h1 {
     font-size: 48px; 
   }
-  
-  .post-body p, 
-  .post-body ul, 
-  .post-body ol, 
-  .post-body h1, 
-  .post-body h2, 
-  .post-body h3, 
-  .post-body h4, 
-  .post-body h5, 
-  .post-body h6,
-  .post-body blockquote  {
-    font-size: 16px;
-    max-width: 760px;
-    line-height: 24px;
-    letter-spacing: 0.02em;
-    margin: 24px auto;
-    padding: 0 20px;
+
+  .post-body {  
+    & p, 
+    & ul, 
+    & ol, 
+    & h1, 
+    & h2, 
+    & h3, 
+    & h4, 
+    & h5, 
+    & h6,
+    & blockquote  {
+      font-size: 16px;
+      max-width: 760px;
+      line-height: 24px;
+      letter-spacing: 0.02em;
+      margin: 24px auto;
+      padding: 0 20px;
+    }
   }
 }

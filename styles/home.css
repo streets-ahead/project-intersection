@@ -14,7 +14,6 @@
   margin: 0px;
 }
 
-
 .navBar {
   /*border-bottom: 1px solid #ddd;*/
   composes: container-width;
@@ -45,6 +44,12 @@
   padding-left: 10px;
 }
 
+.container {
+  composes: container-width;
+  margin: 0px auto;
+  padding: 0px 0 32px 0;
+}
+
 @media screen and (max-width:760px) { 
   
   .separator {
@@ -54,10 +59,4 @@
     display: block;
     margin-top: 10px;
   }
-}
-
-.container {
-  composes: container-width;
-  margin: 0px auto;
-  padding: 0px 0 32px 0;
 }

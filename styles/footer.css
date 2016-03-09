@@ -12,36 +12,29 @@
   & a:visited {
     color: white;
   }
+  
+  & h2 {
+    font-weight: 100;
+    letter-spacing: 1px;
+    margin-top: 0;
+  }
+  
+  & p, & > ul, & > ol, & h1, & h2 { 
+    font-size: 14px;
+    max-width: 760px;
+    line-height: 24px;
+    letter-spacing: 0.04em;
+  }
+  
+  & ul { padding: 0; }
+  
+  & h1 { font-size: 36px; }
+  & h2 { font-size: 32px; }
+  & h3 { font-size: 28px; }
+  & h4 { font-size: 24px; }
+  & h5 { font-size: 20px; }
+  & h6 { font-size: 16px; }
 }
-
-.footer h2 {
-  font-weight: 100;
-  letter-spacing: 1px;
-  margin-top: 0;
-}
-
-.footer p, 
-.footer > ul, 
-.footer > ol, 
-.footer h1, 
-.footer h2 {  
-  font-size: 14px;
-  max-width: 760px;
-  line-height: 24px;
-  letter-spacing: 0.04em;
-}
-
-.footer ul {
-  padding: 0;
-}
-
-.footer h1 {font-size: 36px}
-.footer h2 { font-size: 32px }
-.footer h3 { font-size: 28px }
-.footer h4 { font-size: 24px }
-.footer h5 { font-size: 20px }
-.footer h6 { font-size: 16px }
-
 
 .container {
   display: flex;

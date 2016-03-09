@@ -1,8 +1,9 @@
 import React from 'react';
 import {Link} from 'react-router';
-import previewStyle from '../styles/preview.css';
 import dateFormat from 'dateformat';
 import classNames from 'classnames';
+
+import previewStyle from '../styles/preview.css';
 
 const Preview = ({post, showPreview = false}) => {
   return (

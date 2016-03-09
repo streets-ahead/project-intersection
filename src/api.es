@@ -2,12 +2,12 @@ import axios from 'axios';
 
 export default {
   async getIndex(prefix) {
-    const result = await axios.get((prefix || "") + '/index.json');
-    return result.data;
+    const {data} = await axios.get((prefix || "") + '/index.json');
+    return data;
   },
   
   async getContent(path, prefix) {
-    const result = await axios.get((prefix || "") + "/" + path + '.json');
-    return result.data;
+    const {data} = await axios.get((prefix || "") + "/" + path + '.json');
+    return data;
   }
 }
