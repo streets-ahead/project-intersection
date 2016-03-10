@@ -4,11 +4,7 @@ import {Link} from 'react-router';
 import range from 'lodash/range';
 import {spring, StaggeredMotion} from 'react-motion';
 
-import styles from '../styles/post.css';
-import previewStyle from '../styles/preview.css';
-import homeStyle from '../styles/home.css';
-
-const randomBetween = (from, to) => Math.floor(Math.random() * (to - from + 1) + from);
+import styles from '../../styles/post.css';
 
 const colorMap = {
   "mobile": "#EA6045", 

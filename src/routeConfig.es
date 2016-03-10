@@ -1,9 +1,9 @@
 import React from 'react';
-import Home from './Home';
 import FetchContainer from './FetchContainer';
 import cloneDeep from 'lodash/cloneDeep';
 import Root from './Root';
-import Post from './Post';
+
+import templates from './templates';
 
 const Page = (props) => <span/>;
 
@@ -15,14 +15,14 @@ const routes = [{
   component: Root,
   indexRoute: {key: "home", component: Home},
   childRoutes: [
-    {path: 'pages', key: "page", component: componentForType(Page)},
     {path: 'posts', key: "post", component: componentForType(Post)}
   ]
 }];
 
-function componentForType(DefaultTemplate) {
-  return ({template, ...props}) => {
-    return (template ? React.createElement(template, props) : <DefaultTemplate {...props} />);
+function componentForType(defaultTemplate) {
+  return (props) => {
+    const Template = templates[props.content.template || defaultTemplate];
+    return <Template {...props} />;
   }
 }
 

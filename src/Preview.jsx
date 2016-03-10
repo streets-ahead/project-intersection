@@ -1,13 +1,12 @@
 import React from 'react';
 import {Link} from 'react-router';
 import dateFormat from 'dateformat';
-import classNames from 'classnames';
 
 import previewStyle from '../styles/preview.css';
 
 const Preview = ({post, showPreview = false}) => {
   return (
-    <div  className={classNames(previewStyle['preview-block'], {[previewStyle.expanded]: showPreview})}>
+    <div  className={previewStyle['preview-block']}>
       <div className={previewStyle['title']}>
         <ul className={previewStyle['tags-box']}>
           {post.tags.map(d => <li key={d}>{d}</li>)}
