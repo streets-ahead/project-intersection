@@ -41,7 +41,7 @@ export default function(Component, type) {
     }
     
     render() {
-      const content = this.props.appState[this.props];
+      const content = this.props.appState[this.fullPath(this.props)];
       
       if(!content) return <div className="loading"></div>;
         
