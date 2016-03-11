@@ -3,6 +3,7 @@ import dateFormat from 'dateformat';
 import {Link} from 'react-router';
 import range from 'lodash/range';
 import {spring, StaggeredMotion} from 'react-motion';
+import templates from './index';
 
 import styles from '../../styles/post.css';
 
@@ -14,11 +15,16 @@ const colorMap = {
   "android": "#7EC1A2"
 };
 
-export default function({content, style, winHeight}) {
-  const {body, title, published, author, tags, subHead} = content;
+export default function Post(props) {
+  const {content, style, winHeight} = props;
+  const {body, title, published, author, tags, subHead, innerTemplate} = content;
   const config = {stiffness: 145, damping: 17};
   const color = colorMap[tags[0].toLowerCase()] || "#2F3440";
-
+  
+  const InnerComp = templates[innerTemplate];
+  const bodyContent = InnerComp ? <div className={styles['post-body']}><InnerComp {...props} /></div> :
+                <div className={styles['post-body']} dangerouslySetInnerHTML={{__html: body}} />;
+  
   return (
     <div className={styles['post']} style={style}>
       <div className={styles['nav-bar']}>
@@ -47,7 +53,7 @@ export default function({content, style, winHeight}) {
         </StaggeredMotion>  
       </div>
       <div className={styles['post-container']}>
-        <div className={styles['post-body']} dangerouslySetInnerHTML={{__html: body}} /> 
+        {bodyContent}
       </div>
     </div>
   )

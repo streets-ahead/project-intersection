@@ -1,0 +1,67 @@
+.bounce {
+  padding: 20px;
+  
+  min-height: 200px;
+  background-image: -moz-linear-gradient(top, #fc5e42 0%,#fc3069 100%); /* Chrome10+,Safari5.1+ */
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fc5e42), color-stop(100%,#fc3069)); /* Chrome,Safari4+ */
+  background-image: -webkit-linear-gradient(top, #fc5e42 0%,#fc3069 100%); /* Chrome10+,Safari5.1+ */
+  background-repeat: none;
+}
+
+.siri {
+  padding: 20px;
+  min-height: 200px;
+  background-color: black;
+}
+
+:global {
+  & .area0 {
+    fill: rgba(255,45,99,1);
+    mix-blend-mode: lighten;
+  }
+
+  & .area1 {
+    fill: rgba(165,255,198,1);
+    mix-blend-mode: lighten;
+  }
+
+  & .area2 {
+    fill: rgba(63,161,235,1);
+    mix-blend-mode: lighten;
+  }
+
+  & .area3 {
+    fill: rgba(255,255,255,1);
+    mix-blend-mode: lighten;
+  }
+
+  & .axis path, & .axis line {
+    fill: none;
+    stroke: black;
+    shape-rendering: crispEdges;
+  }
+  
+  & .axis text {
+    font-family: sans-serif;
+    font-size: 11px;
+  }
+
+  & rect:hover{
+    fill: orange;
+  }
+
+  & .axis path, & .axis line {
+    fill: none;
+    shape-rendering: crispEdges;
+  }
+}
+
+.wave {
+  padding: 20px;
+  
+  min-height: 200px;
+  background-image: -moz-linear-gradient(top, #BD4389 0%,#145CA3 100%); /* Chrome10+,Safari5.1+ */
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#BD4389), color-stop(100%,#145CA3)); /* Chrome,Safari4+ */
+  background-image: -webkit-linear-gradient(top, #BD4389 0%,#145CA3 100%); /* Chrome10+,Safari5.1+ */
+  background-repeat: none;
+}
