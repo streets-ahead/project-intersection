@@ -70,8 +70,8 @@ setInterval(() => {
 
 ## Sin Wave
 
-<div class="wave">
-  <div style="width: 600px, margin: 30px auto"></div>
+<div class='wave'>
+  <div style="width: 600px; margin: 30px auto"></div>
 </div>
 
 What if you replace the setInterval portion of the first sample with the following? Replacing the bar height function with a sin wave instead of just random data.
@@ -97,8 +97,8 @@ setInterval(() => {
 
 ## WatchOS 1 Siri
 
-<div class="siri">
-  <div style="width: 600px, margin: 30px auto"></div>
+<div class='siri'>
+  <div style="width: 600px; margin: 30px auto"></div>
 </div>
 
 The last exaple resembles the siri visualization from the first WatchOS, on iOS 9 and WatchOS2 
