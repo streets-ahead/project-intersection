@@ -29,18 +29,10 @@ export default class Root extends Component {
     const ws = new WebSocket('ws://' + host);
     ws.onmessage = (event) => {
       const data = JSON.parse(event.data);
-      switch (data.type) {
-        case "change":
-          api.getIndex().then((index) => this.updateAppState({index}));
-          api.getContent(data.path).then((d) => this.updateAppState({[data.path]: d}));
-          break;
-        case "add":
-          api.getIndex().then((index) => this.updateAppState({index}));
-          api.getContent(data.path).then((d) => this.updateAppState({[data.path]: d}));
-          break;
-        case "remove":
-          api.getIndex().then((index) => this.updateAppState({index}));
-          break;  
+      api.getIndex().then((index) => this.updateAppState({index}));
+      if(data.type === "change" || data.type === "add") {
+        api.getContent(data.path).then((d) => this.updateAppState({[data.path]: d}));
+        api.getContent(data.path).then((d) => this.updateAppState({[data.path]: d}));
       }
     };
   }

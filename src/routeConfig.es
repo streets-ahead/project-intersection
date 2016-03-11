@@ -2,6 +2,7 @@ import React from 'react';
 import FetchContainer from './FetchContainer';
 import cloneDeep from 'lodash/cloneDeep';
 import Root from './Root';
+import Home from './Home';
 
 import templates from './templates';
 
@@ -15,7 +16,7 @@ const routes = [{
   component: Root,
   indexRoute: {key: "home", component: Home},
   childRoutes: [
-    {path: 'posts', key: "post", component: componentForType(Post)}
+    {path: 'posts', key: "post", component: componentForType("Post")}
   ]
 }];
 
