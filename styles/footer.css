@@ -39,7 +39,7 @@
 .container {
   display: flex;
   flex-wrap: wrap-reverse;
-  max-width: 760px;
+  max-width: 640px;
   margin: 32px auto;
 }
 
@@ -48,12 +48,13 @@
     list-style: none;
     text-align: center;
     margin: 64px auto 32px;
+    max-width: 640px;
   }
   
   & li {
     display: inline-block;
     & img { vertical-align: middle; display: inline-block; padding-right: 5px;}
-    padding: 1px 32px;
+    padding: 1px 16px;
     line-height: 24px;
   }
 }
@@ -79,7 +80,7 @@
   padding-right: 32px;
 }
 
-@media screen and (max-width:760px) { 
+@media screen and (max-width: 720px) { 
   .footer {
     padding: 20px;
   }
