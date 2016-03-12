@@ -103,7 +103,7 @@ setInterval(() => {
 
 The last exaple resembles the siri visualization from the first WatchOS, on iOS 9 and WatchOS2 
 its a little different, so that is a challenge for another day.  Again this example is 
-pretty simple.  One additional thing I had to do to get this effect was to apply <code>mix-blend-mode: lighten;</code> style to the SVG paths.
+pretty simple.  One additional thing I had to do to get this effect was to apply `mix-blend-mode: lighten;` style to the SVG paths.
 
 ```
 const svg = d3Selection.select(domNode)
