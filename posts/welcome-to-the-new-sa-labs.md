@@ -2,7 +2,7 @@
 {
   "title": "Welcome to the New SA Labs",
   "author": "Sam Mussell",
-  "tags": ["react.js", "javascript"],
+  "tags": ["javascript", "react.js"],
   "subHead": "We're back and better than ever... Find out how we built our brand new React.js based blog.",
   "published": "Mar 11 2016 5:00:06 GMT-0800 (PST)"
 }

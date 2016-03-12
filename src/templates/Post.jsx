@@ -8,17 +8,20 @@ import templates from './index';
 import styles from '../../styles/post.css';
 
 const colorMap = {
-  "mobile": "#EA6045", 
-  "react.js": "#3F5666", 
+  "javascript": "#F8CA4D", 
+  "clojure": "#3F5666", 
   "data viz": "#61B9D0", 
-  "swift": "#F8CA4D",
+  "swift": "#EA6045",
+    "ios": "#EA6045",
   "android": "#7EC1A2"
 };
+
+const config = {stiffness: 120, damping: 17};
 
 export default function Post(props) {
   const {content, style, winHeight} = props;
   const {body, title, published, author, tags, subHead, innerTemplate} = content;
-  const config = {stiffness: 145, damping: 17};
+  
   const color = colorMap[tags[0].toLowerCase()] || "#2F3440";
   
   const InnerComp = templates[innerTemplate];
@@ -40,7 +43,7 @@ export default function Post(props) {
                         ))}>
           {values => (
             <div className={styles['header-content']}>
-              <ul style={{transform: `translateZ(${values[3].t}px)`}} className={styles['tags-box']}>
+              <ul style={{transform: `translateZ(${values[0].t}px)`}} className={styles['tags-box']}>
                 {tags.map(d => <li key={d}>{d}</li>)}
               </ul>
               <h1 style={{transform: `translateZ(${values[1].t}px)`}}>{title}</h1>
