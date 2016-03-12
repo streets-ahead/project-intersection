@@ -29,7 +29,7 @@ export default function Post(props) {
                 <div className={styles['post-body']} dangerouslySetInnerHTML={{__html: body}} />;
   
   return (
-    <div className={styles['post']} style={style}>
+    <article className={styles['post']} style={style}>
       <div className={styles['nav-bar']}>
         <h1>
           <Link to="/"><img src="/images/sa-logo.svg" width="29" height="18.5" /> SA LABS</Link>
@@ -58,6 +58,6 @@ export default function Post(props) {
       <div className={styles['post-container']}>
         {bodyContent}
       </div>
-    </div>
+    </article>
   )
 };
