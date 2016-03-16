@@ -71,13 +71,12 @@
   composes: date from "./preview.css";
   color: white;
   font-size: 20px;
-  padding-top: 30px;
   letter-spacing: 2px;
 }
 
 .subhead {
   composes: subhead from "./preview.css";
-  padding-top: 32px;
+  font-size: 24px;
   font-style: italic;
   color: white;
 }
@@ -103,9 +102,9 @@
   }
 
   & p, & ul, & ol, & h1, & h2, & h3, & h4, & h5, & h6, & blockquote  {
-    font-size: 16px;
+    font-size: 18px;
     max-width: 640px;
-    line-height: 24px;
+    line-height: 32px;
     letter-spacing: 0.04em;
     margin: 32px auto;
   }
@@ -193,6 +192,10 @@
       letter-spacing: 0.02em;
       margin: 24px auto;
       padding: 0 20px;
+    }
+    
+    & ul {
+      padding: 0 40px;
     }
   }
 }
