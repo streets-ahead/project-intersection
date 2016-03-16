@@ -2,9 +2,11 @@ import React from 'react';
 import api from './api';
 
 let isIOS = false;
+let isBrowser = false;
 
 if(typeof window !== "undefined") {
   isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+  isBrowser = true;
 }
 
 export default function(Component, type) {
@@ -13,19 +15,18 @@ export default function(Component, type) {
       this.updateSize = () => {
         const forceUpdate = !isIOS || (isIOS && this.__width !== window.innerWidth);
         if(forceUpdate) this.forceUpdate();
-      console.log('qwerqwer', isIOS, this.__width, window.innerWidth)
         this.__width = window.innerWidth;
       }
       
-      this.__width = window.innerWidth;
-      if(typeof window !== "undefined") {
+      if(isBrowser) {
+        this.__width = window.innerWidth;
         window.addEventListener('resize', this.updateSize);
       }
       this.update(this.props);
     }
     
     componentWillUnmount() {
-      if(typeof window !== "undefined") {
+      if(isBrowser) {
         window.removeEventListener('resize', this.updateSize);  
       }
     }
@@ -37,7 +38,7 @@ export default function(Component, type) {
     }
     
     getWinHeight() {
-      return typeof window !== 'undefined' ? window.innerHeight : 1200;
+      return isBrowser ? window.innerHeight : 1200;
     }
     
     fullPath({params}) {

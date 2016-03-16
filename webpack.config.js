@@ -38,8 +38,6 @@ module.exports = {
     return [
       // process css-next http://cssnext.io
       require("postcss-cssnext")(),
-      // add prefixes for older browsers https://github.com/postcss/autoprefixer
-      require('autoprefixer')({browsers: ['last 2 versions']}),
       // write any issues to the terminal
       require("postcss-reporter")(),
       // write any issues to the browser 
