@@ -12,7 +12,8 @@ export default function({index}) {
           <p>Welcome to SA Labs, our small little corner of the internet.
             We are a small group of people with a passion for technology, and
             we wanted to create a space where we can share our various ideas
-            and experiments with the world.  Please enjoy.</p>
+            and experiments with the world.  We will be posting about topics including React.js,
+            Mobile, Data Visualization, UX, Clojure, and more.  So stay tuned and please enjoy.</p>
         </div>
         <div className={footerStyles['recent']}>
           <h2>Recent Posts</h2>
