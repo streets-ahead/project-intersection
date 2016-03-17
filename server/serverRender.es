@@ -45,22 +45,20 @@ export default (req, res, next) => {
         
         const index = await api.getIndex(`http://localhost:${port}`);
         const appState = {index};
-        let title = "SA Labs";
+        const $ = cheerio.load(INDEX_HTML);
       
         if(renderProps.params.path) {
           let {pathname} = renderProps.location;
           pathname = pathname.split('/')[1] + '/' + renderProps.params.path;
           appState[pathname] = await api.getContent(pathname, `http://localhost:${port}`);
-          title = "SA Labs | " + appState[pathname].title;
+          $('head title').html("SA Labs | " + appState[pathname].title);
         }
         
-        const $ = cheerio.load(INDEX_HTML);
         const createElement = (El, props) => <El initialAppState={appState} {...props}/>; 
         const content = ReactDOMServer.renderToString( 
           <RouterContext createElement={createElement} initialAppState={appState} {...renderProps} />   
         );
 
-        $('head title').html(title);
         $('head').append(`<script>window._AppState_ = ${JSON.stringify(appState)}</script>`);
         $('#root').html(content);
         res.send($.html());

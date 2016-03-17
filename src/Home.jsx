@@ -1,11 +1,13 @@
 import React, {Component} from 'react';
 import Preview from './Preview';
+import DocumentMeta from './DocumentMeta';
 
 import style from '../styles/home.css';
 
 export default function Home({appState: {index}}) {
   return (
     <div>
+      <DocumentMeta title="SA Labs | Experiments with React.js, Clojure Mobile and More..."/>
       <div className={style.navBar}>
         <p><img src="/images/sa-logo.svg" /></p>
         <h1>

@@ -1,5 +1,6 @@
 import React from 'react';
 import api from './api';
+import DocumentMeta from './DocumentMeta';
 
 let isIOS = false;
 let isBrowser = false;
@@ -60,9 +61,12 @@ export default function(Component, type) {
       if(!content) return <div className="loading"></div>;
         
       return (
-        <Component content={content} 
-                  winHeight={this.getWinHeight()} 
-                  {...this.props} />
+        <span>
+          <DocumentMeta title={`SA Labs | ${content.title}`} />
+          <Component content={content} 
+                    winHeight={this.getWinHeight()} 
+                    {...this.props} />
+        </span>
       );
     }
   }
