@@ -29,9 +29,8 @@
   font-size: 18px;
   font-weight: 300;
   letter-spacing: 0.05em;
-  /*line-height: 28px;*/
+  line-height: 24px;
   color: #444;
-  padding-top: 10px;
 }
 
 .preview-block h1 {
