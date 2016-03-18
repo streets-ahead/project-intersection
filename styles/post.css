@@ -35,7 +35,7 @@
 .nav-bar {
   position: fixed;
   text-align: center;
-  background-color: rgba(255, 255, 255, 0.4);
+  background-color: rgba(255, 255, 255, 0.7);
   -webkit-backdrop-filter: blur(10px);
   z-index: 1000;
   margin: 0;
