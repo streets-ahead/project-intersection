@@ -3,11 +3,11 @@
   "title": "Swifty d3.js: Part 1",
   "author": "Sam Mussell",
   "tags": ["swift","d3.js","data viz"],
-  "published": "Thu Mar 31 2016 15:29:37 GMT-0700 (PDT)"
+  "published": "Thu Mar 31 2016 00:29:37 GMT-0700 (PDT)"
 }
 ---
 
-D3.js is a fantastic and powerful library, we've played with d3.js several times on this [blog](/posts/pretty-d3-js.html) [aleady](/posts/hack-of-the-week-charting-immaturity-with-d3-js.html).   D3 has all of sort of extremely powerful algorithms built in, it also has a DOM manipulation API, but one of the things that makes the d3 API great is the ability to separate the two.  You can take full advantage of d3's built in data crunching power, while rendering the output anyway you like.  In my day job I've done a lot of work with d3 + React.js.  React makes a great rendering engine for d3, it allows you to create reusable charting components that are easier for the end user to use than if it were pure d3.  Mike Bostock has been working hard in d3 4.0 to make this even better by breaking d3 down into smaller useful packages.  He has written several [articles](https://medium.com/@mbostock/introducing-d3-shape-73f8367e6d12?source=---------10-) on the [subject](https://medium.com/@mbostock/introducing-d3-scale-61980c51545f?source=---------9-).
+D3.js is a fantastic and powerful library, we've played with d3.js several times on this [blog](/posts/pretty-d3-js.html) [aleady](/posts/hack-of-the-week-charting-immaturity-with-d3-js.html).   D3 has all sort of extremely powerful algorithms built in, it also has a DOM manipulation API, but one of the things that makes the d3 API great is the ability to separate the two.  You can take full advantage of d3's built in data crunching power, while rendering the output anyway you like.  In my day job I've done a lot of work with d3 + React.js.  React makes a great rendering engine for d3, it allows you to create reusable charting components that are easier for the end user to use than if it were pure d3.  Mike Bostock has been working hard in d3 4.0 to make this even better by breaking d3 down into smaller useful packages.  He has written several [articles](https://medium.com/@mbostock/introducing-d3-shape-73f8367e6d12?source=---------10-) on the [subject](https://medium.com/@mbostock/introducing-d3-scale-61980c51545f?source=---------9-).
 
 We've also seen a ton of interest lately in React Native.  React native is interesting for several reasons, but the one I wanted to focus on here is that React Native allows you to process your UI in Javascript on a background thread and then render natively on the device.
 
@@ -19,9 +19,9 @@ So, for this weeks experiment I wanted to make a simple POC using d3.js to proce
 
 First thing I want to setup is a really simple Webpack config so I can write my code with ES6 using babel, not strictly needed but useful.  This also makes it easy to serve my script using an HTTP server, I found this to be an easy way to load my script into the playground.  You could probably setup the webpack script to output to the resources folder in the playground, or pull some other trickery, but I had some trouble getting Xcode to pick up the changes reliably that way.  You can view my webpack script on [GitHub](https://github.com/streets-ahead/swifty-d3/blob/master/webpack.config.js).  
 
-### d3 Time
+### d3 It Up
 
-The next step was coding up my d3 script, for the time being I kept it really simple.  Below is the whole script.
+The next step was coding up my d3 script, for the time being I kept it really simple.  Below is the entire script.
 
 ```javascript
 import d3Scale from 'd3-scale';
@@ -49,7 +49,7 @@ export let getPath = (data, dim) => {
 
 All the script does is take an array of numbers and a w x h dimension, it creates x and y scales, then makes a simple line chart and returns the path.  In this case we're using the array to control the y axis and the array index to control the x.
 
-Now we can test out the script, we just need to fire up webpack dev server.
+The following command will start the server using the newly created config.
 
 ```
 webpack-dev-server --config webpack.config.js
@@ -59,9 +59,9 @@ At this point I created a little HTML page to load my script and did some simple
 
 ### Let's Play(ground)
 
-Now that we have our JS working we need to create a new Playground.   I'll caution that I'm relatively new to Swift so it's possible I've done something less than optimal, if you have any suggestions let me know.  
+Now that the JavaScript was working I needed to create a new playground.   I'll caution that I'm relatively new to Swift so it's possible I've done something less than optimal, if you have any suggestions let me know.  
 
-The first step is to load the JS file, the following will give a warning because it uses the deprecated version of the API, but I had some issues when I tried to load the file async using the latest API, so I went back to the outdated sync version for now.
+The first step was to load the JS file. One quick note, the following will give a warning because it uses the deprecated version of the APIs, but I had some issues when I tried to load the file asynchronous using the latest API, so I went back to the outdated synchronous version for now.
 
 ```
 let url = NSURL(string: "http://localhost:8080/build/bundle.js")!
@@ -72,7 +72,7 @@ var dataVal: NSData =  try NSURLConnection.sendSynchronousRequest(request, retur
 let jsCode = NSString(data: dataVal, encoding: NSASCIIStringEncoding)
 ```
 
-Now we have a `jsCode` variable containing the contents of our script, now we need to execute it.  To do that we'll use [JavascriptCore](https://developer.apple.com/library/tvos/documentation/Carbon/Reference/WebKit_JavaScriptCore_Ref/index.html).  This is effectively the same thing React Native does to execute your react code, I'd recommend checking out the [React implementation](https://github.com/facebook/react-native/blob/master/React/Executors/RCTJSCExecutor.m) if you're interested.
+Now I had a variable, `jsCode`,  containing the contents of my d3 script.  To execute it I used [JavascriptCore](https://developer.apple.com/library/tvos/documentation/Carbon/Reference/WebKit_JavaScriptCore_Ref/index.html).  This is effectively the same thing React Native does to execute React code, I'd recommend checking out the [React implementation](https://github.com/facebook/react-native/blob/master/React/Executors/RCTJSCExecutor.m) if you're interested.
 
 ```
 let jc = JSContext()
@@ -81,17 +81,18 @@ jc.evaluateScript(jsCode! as String)
 let getPathFunc = jc.objectForKeyedSubscript("Paths").objectForKeyedSubscript("getPath")
 ```
 
-Now we have a reference to our JS function we can go ahead and call it.
+The next step was to try calling the function.
 
 ```
 let result = getPathFunc.callWithArguments([[10,2,29,4,8,20,0,4], [500, 500]])
+print(result)
 ```
 
 ### Helpers
 
-We now have our result string, which is an SVG path, SVG paths seemed like as good as any way to serialize the data from our JS so it works out well, we just need to process that path into CoreGraphics calls.  In order to do this I created a couple helper files.
+So, I now had the result in a string, which is an SVG path. SVG paths seemed like as good as any way to serialize the data from JS to Swift, I just needed to process the path into CoreGraphics calls.  In order to do this I created a couple helper files.
 
-The first thing we need is a way to parse the string, I decided to use some simple regex, the only issue I had is that I'm not a fan of NSRegularExpression, the API seems overly complicated, hopefully Swift can adopt a [good native](https://lists.swift.org/pipermail/swift-evolution/Week-of-Mon-20160125/008593.html) regex syntax soon.  Anyway, for now here is my basic Swift regex utility.
+The first thing I needed was a way to parse the string. I decided to use some simple regex, the only issue I had is that I'm not a fan of NSRegularExpression, the API seems overly complicated. Hopefully, Swift can adopt a [good native](https://lists.swift.org/pipermail/swift-evolution/Week-of-Mon-20160125/008593.html) regex syntax soon.  Anyway, for the time being here is my basic Swift regex utility.
 
 ```
 import Foundation
@@ -126,7 +127,7 @@ public struct RegExp {
 }
 ```
 
-I also decided to create a couple simple extensions to cleanup some of my calls for String and Array.  The following extension to string adds a regexp method to make it a little easier to instantiate a regex for a string.  I also added a splitBy method to make tokenization a little cleaner.
+I decided to create a couple simple extensions to cleanup some of the calls for String and Array.  The following extension to string adds a regexp method to make it a little easier to instantiate a regex for a string.  I also added a splitBy method to make tokenization a little cleaner.
 
 ```
 extension String {
@@ -192,7 +193,7 @@ public struct Command {
 }
 ```
 
-This class includes a static method, `pathToCommands`, which breaks apart the path using a regular expression and returns a list Command instances.  Each command instance has a computed property which returns a function, which will actually invoke the command when called in a drawing context.
+This class includes a static method, `pathToCommands`, which breaks apart the path using a regular expression and returns a list Command instances.  Each command instance has a computed property which returns a function, which will actually invoke the command when called in a drawing context. (It's possible that this could have been implemented as an enum, but this worked well in this example.)
 
 I then made one more function to create a `UIBezierPath` object by executing the list of commands.
 
@@ -208,7 +209,7 @@ func getPathFromCommands(commands: [Command]) -> UIBezierPath {
 
 ### Bring it Together
 
-Now we have all the pieces in place we can create our view.  There are several ways to do this, I chose to use a CAShapeLayer, this seems to make it a little easier to animate the path transition later on.
+Now that I had all the pieces in place I needed to create the view.  There are several ways to do this, I chose to use a CAShapeLayer, this seems to make it a little easier to animate the path transition later on.
 
 ```
 let rect = CGRectMake(0, 0, 500, 500)
@@ -226,7 +227,7 @@ view.layer.addSublayer(layer)
 
 With this code we can now output our path, rendered completely natively even though we coded our logic using d3.js.
 
-One last addition was to animate path transitions.  To do this I used a CASpringAnimation, now I'm a little unclear whether this API is actually public and allowed to be used.  If you lookup the docs for [CABasicAnimation](https://developer.apple.com/library/mac/documentation/GraphicsImaging/Reference/CABasicAnimation_class/) this class is listed, but there is no real doc page for it, so use with caution.  The good news is that this technique works with `CABasicAnimation` as well, you just won't get the spring motion.  
+One last addition was to animate path transitions.  To do this I used a CASpringAnimation, now I'm a little unclear whether this API is actually public and allowed to be used on the AppStore.  If you lookup the docs for [CABasicAnimation](https://developer.apple.com/library/mac/documentation/GraphicsImaging/Reference/CABasicAnimation_class/) this class is listed as a subclass, but there is no real doc page for it, so use with caution.  The good news is, this technique works with `CABasicAnimation` as well, you just won't get the spring motion.  
 
 
 ```
@@ -239,13 +240,13 @@ anim.initialVelocity = 0.00009
 anim.fromValue = layer.path
 ```
 
-Now we can run our JS again using a different data set.
+Next I ran the `getPath` function again using a different data set.
 
 ```
 let result2 = getPathFunc.callWithArguments([[10,2,15,4,8,0,0,10], [500, 500]])
 ```
 
-An finally update the layer.
+And finally updated the layer.
 
 ```
 layer.addAnimation(anim, forKey: "path")
@@ -253,17 +254,17 @@ layer.path = getPathFromCommands(Command.pathToCommands(result2.toString())).CGP
 ```
 ## Running the Example
 
-There's a couple notes about getting this example to show up, first is that you'll want the following line in your Playground in order to add the chart view as the playground's live view.
+There's a couple notes about getting this example to show up, first is that I had to add the following line in the playground code in order to set the chart view as the playground's live view.
 
 ```
 XCPlaygroundPage.currentPage.liveView = view
 ```
 
-The second thing is that you'll want to show the timeline and the assistant editor in Xcode.  To show the assistant editor press `cmd+option+return`.  To turn on the timeline you'll need to press `cmd+option+1` and check the checkbox next to `Show Timeline` under Playground Settings.  The timeline is pretty cool, you can use it to scrub through your animation and view it frame by frame.
+The second thing is that I had to show the timeline and the assistant editor in Xcode.  To show the assistant editor press `cmd+option+return`.  To turn on the timeline press `cmd+option+1` and check the checkbox next to `Show Timeline` under Playground Settings.  The timeline is pretty cool, you can use it to scrub through your animation and view it frame by frame.
 
 ## Finish Up
 
-So, we've seen that we can take advantage of d3's awesome flexibility to draw native visualizations.  There are many nice charting options already available for iOS, so whether or not this is the best option may depend on the situation.  At this point it was just an idea I had that I wanted to play with a little.  In a future article I'd like to push this example a little further by either extending my Command struct to support more SVG features, or try a more [full featured library](https://github.com/SVGKit/SVGKit) that offers full SVG support.  I like the idea that the power of d3 can be used across different platforms, and I think its worth exploring.  Anyway, thanks for reading, and checkout the full project over on [Github](https://github.com/streets-ahead/swifty-d3).
+So, we've seen that we can take advantage of d3's awesome flexibility to draw native visualizations.  There are many nice charting options already available for iOS, so whether or not this is the best option may depend on the situation.  Obviously I haven't handled all cases, like axes or more advanced visualizations.  At this point it was just an idea I had that I wanted to play with a little.  In a future article I'd like to push this example a little further by either extending my Command struct to support more SVG features, or try a more [full featured library](https://github.com/SVGKit/SVGKit) that offers full SVG support.  I like the idea that the power of d3 can be used across different platforms, and I think its worth exploring.  Anyway, thanks for reading, and checkout the full project over on [Github](https://github.com/streets-ahead/swifty-d3).
 
 # Links
 
