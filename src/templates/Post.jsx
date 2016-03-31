@@ -42,7 +42,7 @@ export default function Post(props) {
                           i === 0 ? {t: spring(0, config)} : {t: spring(prev[i - 1].t, config)}
                         ))}>
           {values => (
-            <div className={styles['header-content']}>
+            <div style={{opacity: (300 - values[1].t) / 300}} className={styles['header-content']}>
               <ul style={{transform: `translateZ(${values[2].t}px)`}} className={styles['tags-box']}>
                 {tags.map(d => <li key={d}>{d}</li>)}
               </ul>
