@@ -74,16 +74,6 @@
   color: #EA6045;
 }
 
-.author {
-  font-weight: 100;
-  text-transform: uppercase;
-  color: #bbb;
-  font-weight: 400;
-  font-family: "refrigerator-deluxe";
-  /*margin-bottom: 20px;*/
-  letter-spacing: 2px;
-}
-
 .preview-block p {
   margin: 5px 0px;
 }

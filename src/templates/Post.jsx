@@ -49,7 +49,7 @@ export default function Post(props) {
               <h1 style={{transform: `translateZ(${values[1].t}px)`}}>{title}</h1>
               <p style={{transform: `translateZ(${values[3].t}px)`}} className={styles['subhead']}>{subHead}</p>
               <p style={{transform: `translateZ(${values[0].t}px)`}} className={styles['date']}>
-                {dateFormat(new Date(published), "mmm dd, yyyy")} / {author}
+                <time>{dateFormat(new Date(published), "mmm dd, yyyy")}</time> / <span className="author">{author}</span>
               </p>
             </div>
           )}
