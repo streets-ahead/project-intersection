@@ -16,7 +16,7 @@ That more or less catches us up to the reality where I now found myself.  My own
 
 With that surely earth-shattering epiphany on the table, what exactly is in store for me .... 
 
-## ¯\\\_(ツ)\_/¯
+<h3 style="max-width: 175px; margin: auto;">¯\\\_(ツ)\_/¯</h3>
 
 At this point all I really know is that while I continue to figure it out I'll work to optimize for what excites me in my current role, and until such a time that I can claim to be a Professional Learner/Technical Prototyper I'll be:
 
