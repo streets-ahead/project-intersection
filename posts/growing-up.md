@@ -14,9 +14,9 @@ I assume my story is not all that different from the many who've written code be
 
 That brings us back to the present and an unspoken commitment to finally figure out what I want out of my next career step.  I've started by trying to squeeze out a few hours to reignite some interests in a few technologies I've put off including building my first Alexa Skill and prototyping some React Native applications.  What I discovered was that even in those small little projects my creative spirit was re-invigorated.  The act of actively learning new technologies, applying it to a real problem AND FINALLY writing code again reminded me that I'm a coder dammit, and I NEED to write code.
 
-With that surely earth-shattering epiphany on the table, what exactly is in store for me .... ¯\\_(ツ)_/¯!
+With that surely earth-shattering epiphany on the table, what exactly is in store for me .... ¯\\\_(ツ)\_/¯!
 
-At this point all I really know is that while I continue to figure it out I'll work to optimize for what excites me in my current role, and until such a time that I'm able to be a claim to be a Professional Learner/Technical Prototyper I'll be:
+At this point all I really know is that while I continue to figure it out I'll work to optimize for what excites me in my current role, and until such a time that I can claim to be a Professional Learner/Technical Prototyper I'll be:
 
 * getting back to coding
 	* finding opportunities to skip meetings and implement features at work
@@ -24,4 +24,3 @@ At this point all I really know is that while I continue to figure it out I'll w
 * continue to jump into the exploding ecosystem of conversational interfaces with Google Actions and Alexa Skill Kit
 * complete a series of prototypes that accomplish some task of merit to be debated at a later time
 * AND share more of the experience (because as it turns out I don't hate that either)
-
