@@ -23,6 +23,6 @@ At this point all I really know is that while I continue to figure it out I'll w
 * writing more code by:
 	* finding opportunities to skip meetings and implement features at work (even though I'm more than a little over the Java Spring enterprise-y scene)
 	* setting aside time off the clock to code on technologies that actively excite me
-* continuint to jump into the exploding ecosystem of conversational interfaces with Google Actions and Alexa Skill Kit
+* continuing to jump into the exploding ecosystem of conversational interfaces with Google Actions and Alexa Skill Kit
 * completing a series of prototypes that accomplish some task of merit to be debated at a later time
 * AND sharing more of the experience (because as it turns out I don't hate that either)
