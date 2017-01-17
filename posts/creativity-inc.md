@@ -8,7 +8,7 @@
 }
 ---
 
-# Creativity Inc
+# Creativity, Inc
 
 One of my goals for the new year (I suppose you could call it a resolution if you want) is to read more.  Every year I keep finding more and more fascinating sounding books, but I only get through a few and so the queue is growing at an unacceptable pace.  In service of this goal, I am going to create a small write up about the books I read that I found particularly interesting.  The first book I read in 2017 was [Creativity, Inc, by Ed Catmull and Amy Wallace](https://www.amazon.com/Creativity-Inc-Overcoming-Unseen-Inspiration/dp/0812993012).
 
