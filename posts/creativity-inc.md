@@ -4,7 +4,7 @@
   "subHead": "Overcoming the Unseen Forces That Stand in the Way of True Inspiration.",
   "author": "Sam Mussell",
   "tags": ["review", "books"],
-  "published": "Tue Jan 17 2017 07:20:36 GMT-0800 (PST)"
+  "published": "Tue Jan 16 2017 07:20:36 GMT-0800 (PST)"
 }
 ---
 
