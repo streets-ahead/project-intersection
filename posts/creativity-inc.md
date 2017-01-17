@@ -22,6 +22,8 @@ Some of the key take aways for me were his focus on encouraging ideas from all e
 
 > If there is more truth in the hallways than in meetings, you have a problem.  
 
+
+
 > What is the point of hiring smart people, we asked, if you don’t empower them to fix what’s broken?  
 
 He also talks about empowering employees, he uses the example of Toyota’s manufacturing.  In American car factories it was considered the ultimate sin to stop the assembly line, any time there was a problem the employee had to pull that car off the line quickly and keep things moving or risk being punished.  However at Toyota they used a different technique, employees were encourage to look out for issues and stop the line when needed.  This not only increased quality and ultimately efficiency, but it had the important side effect that employees felt empowered and because of they felt empowered they took more pride in their work.  A common theme through out the book was that you should never foster a fear of failing, but instead encourage employees to take some risks, and be willing to speak up when they believe they have a better idea.
