@@ -1,6 +1,7 @@
 ---
 {
   "title": "Just a Developer",
+  "subHead": "A mini-rant on the annoyances of specialization",
   "author": "Terry Keeney",
   "tags": ["thoughts","rant"],
   "published": "Fri Jan 13 2017 18:03:43 GMT-0700 (MST)"
