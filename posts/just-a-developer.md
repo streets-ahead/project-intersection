@@ -14,7 +14,7 @@ The explosion of languages, frameworks and platforms in the software development
 
 In my grossly generalized world the Coder can be identified by their battling cry: "That's a &lt;not-my-tech&gt; problem, I'm a &lt;my-tech-proficiency&gt; developer".  The Coder is characterized by his proficiency in a narrow range of chosen skills.  The Coder will progresses and becomes better in his niche by sheer practice and repetition alone.  
 
-By contrast the Developer's single greatest skill is in being an applied learner.  Quite simply the Developer has a knack for grokking new [languages|frameworks|platoforms] and becoming proficient very quickly.  There is no problem beyond there reach for they enjoy building at any level stack.
+By contrast the Developer's single greatest skill is in being an applied learner.  Quite simply the Developer has a knack for grokking new [languages|frameworks|platoforms] and becoming proficient very quickly.  There is no problem beyond their reach for they enjoy building at any level stack.
 
 So, before you ask again ...
 NO I AM NOT A:  
