@@ -34,7 +34,7 @@ There are many, many other great ideas and themes in the book, but for me the re
 
 > “Disney Animation was sort of like a dog that had been beaten again and again,”  
 
-He explains how they had to dramatically change the existing culture at Disney in order to return to an environment that can foster quality storytelling and creativity.  I believe the results could not be more evident. Since John and Ed have been leading Disney Animation they have produced a string of amazing films.  Films which have not only been successful at the box office, but have also been critically acclaimed and are bound to join the ranks of Disney’s classic films such as **Snow White** and **Cinderella**.  
+He explains how they had to dramatically change the existing culture at Disney in order to return to an environment that can foster quality storytelling and creativity.  I believe the results could not be more evident. Since John and Ed have been leading Disney Animation they have produced a string of amazing films.  Films which have not only been successful at the box office, but have also been critically acclaimed and are bound to join the ranks of Disney’s classic films such as *Snow White* and *Cinderella*.  
 
 I really enjoyed this book, and I wish that anyone who has any sort of management role would read this and head its advice.
 
