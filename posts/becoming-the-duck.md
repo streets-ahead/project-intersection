@@ -4,7 +4,7 @@
   "subHead": "What you should've said was nothing",
   "author": "Terry Keeney",
   "tags": ["tech leadership","random thoughts"],
-  "published": "Fri Mar 17 2017 14:07:11 GMT-0600 (MDT)"
+  "published": "Fri Mar 17 2017 01:01:11 GMT-0600 (MDT)"
 }
 ---
 
