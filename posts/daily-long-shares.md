@@ -41,3 +41,9 @@ I have a running Slack thread with several friends and on a semi-daily basis I f
 ### March 24, 2017
 
   * [Enhancing your maps and visualizations with WebGL GLSL Shaders](https://www.youtube.com/watch?v=5AGx0_2xI6Y) *(video)*
+
+### March 31, 2017
+
+  * [Soliving Problems Declaratively](https://www.youtube.com/watch?v=COrFZIES_44) *(video)*
+  
+
