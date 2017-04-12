@@ -46,4 +46,12 @@ I have a running Slack thread with several friends and on a semi-daily basis I f
 
   * [Soliving Problems Declaratively](https://www.youtube.com/watch?v=COrFZIES_44) *(video)*
   
+### April 10, 2017
+
+  * [A Deepdive Into Flow at react-europe 2016](https://www.youtube.com/watch?v=VEaDsKyDxkY)
+
+### April 11, 2017
+
+  * [See TypeScript in Action](https://www.typescriptlang.org)
+  
 
