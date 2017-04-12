@@ -48,10 +48,10 @@ I have a running Slack thread with several friends and on a semi-daily basis I f
   
 ### April 10, 2017
 
-  * [A Deepdive Into Flow at react-europe 2016](https://www.youtube.com/watch?v=VEaDsKyDxkY)
+  * [A Deepdive Into Flow at react-europe 2016](https://www.youtube.com/watch?v=VEaDsKyDxkY) *(video)*
 
 ### April 11, 2017
 
-  * [See TypeScript in Action](https://www.typescriptlang.org)
+  * [See TypeScript in Action](https://www.typescriptlang.org) *(video)*
   
 
